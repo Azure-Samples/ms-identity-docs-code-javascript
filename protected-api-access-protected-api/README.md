@@ -23,10 +23,6 @@ urlFragment: ms-identity-docs-code-api-nodejs
 
 This sample Node.Js application demonstrates a confidential client application which calls a protected API which then makes a request to Microsoft Graph via the on-behalf-of flow.
 
-![A browser screenshot on a page showing a response from Microsoft Graph](./app.png)
-
-> :page_with_curl: This sample application backs one or more technical articles on docs.microsoft.com. <!-- TODO: Link to first tutorial in series when published. -->
-
 ## Prerequisites
 
 - Azure Active Directory (Azure AD) tenant and the permissions or role required for managing app registrations in the tenant.
@@ -64,7 +60,7 @@ Update these settings to reference the new Web App
 
 | App registration <br/> setting    | Value for this sample app                                                    | Notes                                                                                              |
 |:---------------------------------:|:-----------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------|
-| **"knownClientApplications**      | Client ID (UUID) of the application created in step 2.                       | Required value for this sample.                                                                    |
+| **knownClientApplications**      | Client ID (UUID) of the application created in step 2.                       | Required value for this sample.                                                                    |
 
 
 > :information_source: **Bold text** in the tables above matches (or is similar to) a UI element in the Azure portal, while `code formatting` indicates a value you enter into a text box in the Azure portal.
@@ -74,18 +70,22 @@ Update these settings to reference the new Web App
 
 ### 4. Update code sample with app registration values
 
-'tenant' - this is the Directory (tenant) ID from the Node Web APP registration
-'clientId' - this is the Application (client) ID from the Node Web APP registration
-'clientSecret' - this is the Client secret 'Value' from 'Client Secrets' from the Node Web APP registration
+`tenant` - this is the Directory (tenant) ID from the Node Web APP registration
+
+`clientId` - this is the Application (client) ID from the Node Web APP registration
+
+`clientSecret` - this is the Client secret 'Value' from 'Client Secrets' from the Node Web APP registration
+
 
 ### 3. Install necessary Node.Js modules
 
+```bash
 npm i @azure/msal-node
 npm i express
 npm i https
 npm i jsonwebtoken
 npm i jwks-rsa
-
+```
 
 
 ## Run the application
@@ -104,7 +104,9 @@ Authorization: Bearer {token}
 
 If everything worked, the sample app should produce the JSON-formatted output of a graph /me request for your user.
 
-![A browser screenshot showing the weclome page to the sample application.](./home.png)
+
+
+
 
 ## About the code
 
