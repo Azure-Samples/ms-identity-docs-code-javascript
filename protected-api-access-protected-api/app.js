@@ -60,7 +60,7 @@ const callGraph = (accessToken, callback) => {
         headers: {'Authorization': `Bearer ${accessToken}`}
     };
 
-    const req = https.request(new URL('https://graph.microsoft.com/v1.0/me'), options, (res) => {
+    const req = https.request('https://graph.microsoft.com/v1.0/me', options, (res) => {
         res.on('data', (chunk) => {
             callback(chunk);
         });
