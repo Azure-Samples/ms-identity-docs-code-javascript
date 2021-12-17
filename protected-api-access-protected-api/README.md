@@ -77,20 +77,15 @@ Update these settings to reference the new Web App
 `clientSecret` - this is the Client secret 'Value' from 'Client Secrets' from the Node Web APP registration
 
 
-### 3. Install necessary Node.Js modules
+### 3. Install package(s)
 
-```bash
-npm i @azure/msal-node
-npm i express
-npm i https
-npm i jsonwebtoken
-npm i jwks-rsa
-```
+To install Node.Js and MSAL libraries into your (virtual) environment:
 
 
 ## Run the application
 
 ```bash
+npm install
 node app.js
 ```
 
