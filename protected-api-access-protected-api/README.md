@@ -81,11 +81,13 @@ Update these settings to reference the new Web App
 
 To install Node.Js and MSAL libraries into your (virtual) environment:
 
+```bash
+npm install
+```
 
 ## Run the application
 
 ```bash
-npm install
 node app.js
 ```
 
