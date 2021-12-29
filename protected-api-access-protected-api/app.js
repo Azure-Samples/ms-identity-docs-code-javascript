@@ -10,7 +10,7 @@ const msal = require('@azure/msal-node')
 // Node.Js Express Framework
 const express = require('express')
 
-// Used to make HTTP GET requests to Graph
+// Used to make HTTP GET requests to the Graph API
 const https = require('https')
 
 // Used to verify tokens
