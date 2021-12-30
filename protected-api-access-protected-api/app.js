@@ -64,23 +64,22 @@ const validateJwt = (req, res, next) => {
       issuer: config.auth.authority + '/v2.0'
     }
 
+    // Get Signing Keys
+    const getSigningKeys = (header, callback) => {
+      jwksClient.getSigningKey(header.kid, function (err, key) {
+        const signingKey = key.publicKey
+        callback(null, signingKey)
+      })
+    }
+
     // Attempt to verify the token. If validation fails, return an HTTP 401 error.
     jsonwebtoken.verify(token, getSigningKeys, validationOptions, (err, payload) => {
-      if (err) {
-        console.log(err)
-        return res.sendStatus(401)
-      }
+      if (err) return res.sendStatus(401)
       next()
     })
   }
 }
 
-const getSigningKeys = (header, callback) => {
-  jwksClient.getSigningKey(header.kid, function (err, key) {
-    const signingKey = key.publicKey
-    callback(null, signingKey)
-  })
-}
 
 // This portion responds to the user when the /me endpoint is requested
 app.get('/me', validateJwt, (req, res) => {
@@ -108,7 +107,7 @@ app.get('/me', validateJwt, (req, res) => {
 
     // Make a request to the Graph /me endpoint and send the output to the requestor
     https.request('https://graph.microsoft.com/v1.0/me', options, function (graph) {
-     graph.on('data', function (chunk) { res.send(chunk) }) 
+     graph.on('data', function (chunk) { res.send(chunk) })
     }).end()
   })
 })
