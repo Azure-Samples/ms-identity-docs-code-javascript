@@ -67,8 +67,7 @@ const validateJwt = (req, res, next) => {
     // Get Signing Keys
     const getSigningKeys = (header, callback) => {
       jwksClient.getSigningKey(header.kid, function (err, key) {
-        const signingKey = key.publicKey
-        callback(null, signingKey)
+        callback(null, key.publicKey)
       })
     }
 
