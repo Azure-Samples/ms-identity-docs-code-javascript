@@ -84,7 +84,6 @@ const validateJwt = (req, res, next) => {
 app.get('/me', validateJwt, (req, res) => {
 
   // Set the HTTP Content-Type
-  res.type('json')
 
   // Get the authorization header
   const authHeader = req.headers.authorization
@@ -106,7 +105,7 @@ app.get('/me', validateJwt, (req, res) => {
 
     // Make a request to the Graph /me endpoint and send the output to the requestor
     https.request('https://graph.microsoft.com/v1.0/me', options, function (graph) {
-     graph.on('data', function (chunk) { res.send(chunk) })
+     graph.on('data', function (chunk) { res.json(JSON.parse(chunk))})
     }).end()
   })
 })
