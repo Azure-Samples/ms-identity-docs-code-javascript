@@ -85,6 +85,9 @@ const getSigningKeys = (header, callback) => {
 // This portion responds to the user when the /me endpoint is requested
 app.get('/me', validateJwt, (req, res) => {
 
+  // Set the HTTP Content-Type
+  res.type('json')
+
   // Get the authorization header
   const authHeader = req.headers.authorization
 
@@ -103,15 +106,8 @@ app.get('/me', validateJwt, (req, res) => {
       headers: { Authorization: `Bearer ${response.accessToken}` }
     }
 
-    // Collect the output from the HTTP GET request and send it back to the requesting API
-    const callback = function (graphResponse) {
-      graphResponse.on('data', function (chunk) {
-        res.send(chunk)
-      })
-    }
-
-    // Make the request against the Graph API
-    https.request('https://graph.microsoft.com/v1.0/me', options, callback).end()
+    // Make a request to the Graph /me endpoint and send the output to the requestor
+    https.request('https://graph.microsoft.com/v1.0/me', options, function (graph) { graph.on('data', function (chunk) { res.send(chunk) }) }).end()
   })
 })
 
