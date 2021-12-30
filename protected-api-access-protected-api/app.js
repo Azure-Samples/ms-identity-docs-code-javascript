@@ -107,7 +107,9 @@ app.get('/me', validateJwt, (req, res) => {
     }
 
     // Make a request to the Graph /me endpoint and send the output to the requestor
-    https.request('https://graph.microsoft.com/v1.0/me', options, function (graph) { graph.on('data', function (chunk) { res.send(chunk) }) }).end()
+    https.request('https://graph.microsoft.com/v1.0/me', options, function (graph) {
+     graph.on('data', function (chunk) { res.send(chunk) }) 
+    }).end()
   })
 })
 
