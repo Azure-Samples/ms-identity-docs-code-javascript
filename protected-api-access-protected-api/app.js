@@ -83,8 +83,6 @@ const validateJwt = (req, res, next) => {
 // This portion responds to the user when the /me endpoint is requested
 app.get('/me', validateJwt, (req, res) => {
 
-  // Set the HTTP Content-Type
-
   // Get the authorization header
   const authHeader = req.headers.authorization
 
