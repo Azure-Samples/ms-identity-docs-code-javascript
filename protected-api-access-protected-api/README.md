@@ -70,11 +70,24 @@ Update these settings to reference the new Web App
 
 ### 4. Update code sample with app registration values
 
-`tenant` - this is the Directory (tenant) ID from the Node Web APP registration
+```javascript
+// 'Directory (tenant) ID' in Azure portal
+const tenant = ''
 
-`clientId` - this is the Application (client) ID from the Node Web APP registration
+const config = {
+  auth: {
 
-`clientSecret` - this is the Client secret 'Value' from 'Client Secrets' from the Node Web APP registration
+    // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
+    clientId: '',
+
+    // Client secret 'Value' (not the ID) from 'Client secrets' in app registration in Azure portal
+    clientSecret: '',
+
+    // Full directory URL, in the form of https://login.microsoftonline.com/<tenant>
+    authority: `https://login.microsoftonline.com/${tenant}`
+  }
+}
+```
 
 
 ### 3. Install package(s)
