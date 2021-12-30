@@ -42,12 +42,10 @@ const cca = new msal.ConfidentialClientApplication(config)
 
 const app = express()
 
-/*
- This is needed for token validation.
- The signing keys are located on the specified JWKS (JSON Web Key Set) endpoint.
-*/
 
-const client = jwksRsa({
+// The signing keys are located on the specified JWKS (JSON Web Key Set) endpoint.
+// Required for token validation.
+const jwksClient = jwksRsa({
   jwksUri: `https://login.microsoftonline.com/${tenant}/discovery/v2.0/keys`
 })
 
@@ -78,7 +76,7 @@ const validateJwt = (req, res, next) => {
 }
 
 const getSigningKeys = (header, callback) => {
-  client.getSigningKey(header.kid, function (err, key) {
+  jwksClient.getSigningKey(header.kid, function (err, key) {
     const signingKey = key.publicKey
     callback(null, signingKey)
   })
