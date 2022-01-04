@@ -68,6 +68,11 @@ const config = {
 }
 ```
 
+```javascript
+    // The scope is the API scope we are authorizing
+    scopes: [''],
+```
+
 
 ### 3. Install package(s)
 
