@@ -3,72 +3,85 @@
  to an API written in Node.Js 16.
 */
 
-// Microsoft Authentication Library (MSAL) for Node.Js
-const msal = require('@azure/msal-node')
-
 // Node.Js Express Framework
 const express = require('express')
+
+// Used to validate authentication tokens
+const jsonwebtoken = require('jsonwebtoken')
+const jwksRsa = require('jwks-rsa')
 
 // The port the express server will listen on
 const SERVER_PORT = 8080
 
+// 'Directory (tenant) ID' in the Azure portal
+const tenant = ''
+
 const config = {
   auth: {
-    
+
     // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
     clientId: '',
-    
-    // Client secret 'Value' (not the ID) from 'Client secrets' in app registration in Azure portal
-    clientSecret: '',
 
     // Full directory URL, in the form of https://login.microsoftonline.com/<tenant>
-    authority: ``
+    authority: `https://login.microsoftonline.com/${tenant}`
   }
 }
 
-// Initialize MSAL configuration with above values
-const cca = new msal.ConfidentialClientApplication(config)
+// Scopes required for authentication
+const requiredScopes = ['user_write', 'user_read']
 
 const app = express()
 
-// This portion handles the request in the browser when the user requests the / endpoint
-app.get('/', (req, res) => {
-
-  const authCodeUrlParameters = {
-
-    // The scope is the API scope we are authorizing
-    scopes: [''],
-
-    // The redirectUri is where MSAL will redirect the browser after the authorization attempt
-    redirectUri: `http://localhost:${SERVER_PORT}/redirect`
-  }
-
-  // Create the URL for the authorization request then redirect to that URL
-  cca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
-    res.redirect(response)
-  })
+// The signing keys are located on the specified JWKS (JSON Web Key Set) endpoint
+// Required for token validation
+const client = jwksRsa({
+  jwksUri: `https://login.microsoftonline.com/${tenant}/discovery/v2.0/keys`
 })
 
-// This portion handles the request in the browser when the user requests the /redirect endpoint
-// This endpoint requires authorization
-app.get('/redirect', (req, res) => {
+const validateJwt = (req, res, next) => {
+  const authHeader = req.headers.authorization
 
-  const tokenRequest = {
+  if (authHeader) {
 
-    // Get the value of the 'code' parameter from the query string
-    code: req.query.code,
+    // Extract the authorization tokenfromthe header
+    const token = authHeader.split(' ')[1]
 
-    // These are the scope(s) and redirectUri needed by our API
-    scopes: [''],
-    redirectUri: `http://localhost:${SERVER_PORT}/redirect`
+    const validationOptions = {
+      // The expected audience is the clientId specified in 'audience'
+      audience: config.auth.clientId,
+      // The expected issuer is the authority specified in 'config'
+      issuer: config.auth.authority + '/v2.0'
+    }
+
+    // Verify the token - 'expiry date' and 'not before date' are verified by default
+    // Per the variable validationOptions, 'audience' and 'issuer' will also be verified
+    jsonwebtoken.verify(token, getSigningKeys, validationOptions, (err, payload) => {
+      if (err) {
+        console.log(err)
+        return res.sendStatus(401)
+      }
+
+      // If the token is valid, verify the user has the correct scope(s) to access the desired endpoint
+      if (!requiredScopes.every(v => payload.scp.split(' ').includes(v))) {
+        console.log('User does not have required scope(s)')
+        return res.sendStatus(403)
+      }
+
+      next()
+    })
   }
+}
 
-  // Attempt to validate the token request for our scope(s) and URI
-  cca.acquireTokenByCode(tokenRequest).then((response) => {
-    res.status(200).send('Authorized')
-  }).catch((error) => {
-    res.status(500).send('Unauthorized')
+// Get the public key used to sign the token
+const getSigningKeys = (header, callback) => {
+  client.getSigningKey(header.kid, function (err, key) {
+    callback(null, key.publicKey)
   })
+}
+
+// Endpoint which displays 'Hello world' upon successful authentication
+app.get('/', validateJwt, (req, res) => {
+  res.status(200).send('Hello world')
 })
 
-app.listen(SERVER_PORT, () => console.log(`App listening on: http://localhost:${SERVER_PORT}/`))
+app.listen(SERVER_PORT, () => console.log(`\nListening here:\nhttp://localhost:${SERVER_PORT}/`))
