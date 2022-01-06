@@ -51,7 +51,8 @@ Use these settings in your app registration.
 
 
 > :information_source: **Bold text** in the tables above matches (or is similar to) a UI element in the Azure portal, while `code formatting` indicates a value you enter into a text box in the Azure portal.
-### 4. Update code sample with app registration values
+
+### 2. Update code sample with app registration values
 
 ```javascript
 // JWKS URI in the form of: https://login.microsoftonline.com/<tenant>/discovery/v2.0/keys
