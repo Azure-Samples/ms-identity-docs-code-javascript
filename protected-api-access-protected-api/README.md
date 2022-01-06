@@ -15,7 +15,7 @@ urlFragment: ms-identity-docs-code-api-nodejs
 ---
 -->
 
-# Node.js | web app | user sign-in, access control (protected routes), protected web API access (Microsoft Graph) | Microsoft identity platform
+# Node.js | web API | user sign-in, access control (protected routes), protected web API access (Microsoft Graph) | Microsoft identity platform
 
 <!-- Build badges here
 ![Build passing.](https://img.shields.io/badge/build-passing-brightgreen.svg) ![Code coverage.](https://img.shields.io/badge/coverage-100%25-brightgreen.svg) ![License.](https://img.shields.io/badge/license-MIT-green.svg)
