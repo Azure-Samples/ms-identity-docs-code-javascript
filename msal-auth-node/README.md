@@ -54,21 +54,14 @@ Use these settings in your app registration.
 ### 4. Update code sample with app registration values
 
 ```javascript
-app.use(jwt({
-  secret: jwks.expressJwtSecret({
+// JWKS URI in the form of: https://login.microsoftonline.com/<tenant>/discovery/v2.0/keys
+jwksUri: ''
 
-    // JWKS URI in the form of: https://login.microsoftonline.com/<tenant>/discovery/v2.0/keys
-    jwksUri: ''
-  }),
-  
-  // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
-  audience: '',
-  
-  // Full directory URL, in the form of: https://login.microsoftonline.com/<tenant>/v2.0
-  issuer: '',
+// 'Application (client) ID' of app registration in Azure portal - this value is a GUID
+audience: ''
 
-  algorithms: ['RS256']
-}))
+// Full directory URL, in the form of: https://login.microsoftonline.com/<tenant>/v2.0
+issuer: ''
 ```
 
 ### 3. Install package(s)
