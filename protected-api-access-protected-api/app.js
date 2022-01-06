@@ -4,10 +4,10 @@
  Microsoft Graph /me endpoint on behalf of the authenticated user.
 */
 
-// Microsoft Authentication Library (MSAL) for Node.Js
+// Microsoft Authentication Library (MSAL) for Node.js
 const msal = require('@azure/msal-node')
 
-// Node.Js Express Framework
+// Node.js Express Framework
 const express = require('express')
 
 // Used to validate authentication tokens
