@@ -10,103 +10,68 @@ const msal = require('@azure/msal-node')
 // Node.Js Express Framework
 const express = require('express')
 
+// Used to validate authentication tokens
+const jwt = require('express-jwt')
+const jwks = require('jwks-rsa')
+const jwtAuthz = require('express-jwt-authz')
+
 // Used to make the HTTP GET request to the Graph API
 const https = require('https')
 
-// Used to verify authentication tokens
-const jsonwebtoken = require('jsonwebtoken')
-const jwksRsa = require('jwks-rsa')
-
-// The port the express server will listen on
-const SERVER_PORT = 8080
-
-// 'Directory (tenant) ID' in Azure portal
-const tenant = ''
-
-const config = {
+// Initialize MSAL
+const msalConfidentialClientApp = new msal.ConfidentialClientApplication({
   auth: {
-    
     // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
     clientId: '',
-    
     // Client secret 'Value' (not the ID) from 'Client secrets' in app registration in Azure portal
     clientSecret: '',
-
     // Full directory URL, in the form of https://login.microsoftonline.com/<tenant>
-    authority: `https://login.microsoftonline.com/${tenant}`
+    authority: ''
   }
-}
-
-// Initialize MSAL configuration with above values
-const cca = new msal.ConfidentialClientApplication(config)
+})
 
 const app = express()
 
+// Validate the token from the user
+app.use(jwt({
+  secret: jwks.expressJwtSecret({
+    // Full URL, in the form of: https://login.microsoftonline.com/<tenant>/discovery/v2.0/keys
+    jwksUri: ''
+  }),
+  // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
+  audience: '',
+  // Full URL, in the form of: https://login.microsoftonline.com/<tenant>/v2.0
+  issuer: '',
+  // Algorithm for MSAL tokens is R256
+  algorithms: ['RS256']
+}))
 
-// The signing keys are located on the specified JWKS (JSON Web Key Set) endpoint.
-// Required for token validation.
-const jwksClient = jwksRsa({
-  jwksUri: `https://login.microsoftonline.com/${tenant}/discovery/v2.0/keys`
-})
-
-
-const validateJwt = (req, res, next) => {
+// Proceed to the /me endpoint if the user's token has 'user_impersonation' scope
+app.get('/me', jwtAuthz(['user_impersonation'], { customScopeKey: 'scp' }), (req, res) => {
+  // Get the user's token
   const authHeader = req.headers.authorization
 
-  if (authHeader) {
-
-    // Extract the authorization token from the header
-    const token = authHeader.split(' ')[1]
-
-    // Each token has a target audience and issuer
-    const validationOptions = {
-      audience: config.auth.clientId,
-      issuer: config.auth.authority + '/v2.0'
-    }
-
-    // Get Signing Keys
-    const getSigningKeys = (header, callback) => {
-      jwksClient.getSigningKey(header.kid, function (err, key) {
-        callback(null, key.publicKey)
-      })
-    }
-
-    // Attempt to verify the token. If validation fails, return an HTTP 401 error.
-    jsonwebtoken.verify(token, getSigningKeys, validationOptions, (err, payload) => {
-      if (err) return res.sendStatus(401)
-      next()
-    })
-  }
-}
-
-
-// This portion responds to the user when the /me endpoint is requested
-app.get('/me', validateJwt, (req, res) => {
-
-  // Get the authorization header
-  const authHeader = req.headers.authorization
-
-  // Prepare configuration for the On-behalf-of request
   const oboRequest = {
     oboAssertion: authHeader.split(' ')[1],
     scopes: ['user.read']
   }
 
-  // Request a Graph API token On-behalf-of the user, using the token provided by the user when they accessed this API's /me endpoint
-  cca.acquireTokenOnBehalfOf(oboRequest).then((response) => {
-
-    // Configure HTTP settings for the GET resquest, with the authorization bearer token in the header.
+  // Send the user's token to Graph, to receive a token for Graph on-behalf-of the user
+  msalConfidentialClientApp.acquireTokenOnBehalfOf(oboRequest).then((response) => {
     const options = {
       method: 'GET',
       headers: { Authorization: `Bearer ${response.accessToken}` }
     }
 
-    // Make a request to the Graph /me endpoint and send the output to the requestor
-    https.request('https://graph.microsoft.com/v1.0/me', options, function (graph) {
-     graph.on('data', function (chunk) { res.json(JSON.parse(chunk))})
-    }).end()
+    const callback = function (graphResponse) {
+      graphResponse.on('data', function (chunk) {
+        res.send(chunk)
+      })
+    }
+
+    // Perform an HTTP GET request against the Graph endpoint with the token issued by Graph on-behalf-of the user
+    https.request('https://graph.microsoft.com/v1.0/me', options, callback).end()
   })
 })
 
-// Allow our app to be open to receiving connections
-app.listen(SERVER_PORT, () => console.log(`\nListening here:\nhttp://localhost:${SERVER_PORT}/me`))
+app.listen(8080, () => console.log('\nListening here:\nhttp://localhost:8080'))
