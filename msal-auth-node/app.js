@@ -29,7 +29,8 @@ app.use(jwt({
   algorithms: ['RS256']
 }))
 
-// Verify the token is valid and contains 'Greeting.Read' for the scope to access the / endpoint
+// Verify the token is valid and contains 'Greeting.Read' for the scope to access the endpoint.
+// Instruct jwtAuthz to pull scopes from the 'scp' claim, which is the claim used by Azure AD.
 app.get('/', jwtAuthz(['Greeting.Read'], { customScopeKey: 'scp' }), (req, res) => {
   res.send('Hello, world. You were able to access this because you provided a valid access token with the Greeting.Read scope as a claim.')
 })
