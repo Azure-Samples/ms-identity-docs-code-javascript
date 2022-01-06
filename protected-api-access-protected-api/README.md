@@ -38,7 +38,7 @@ This sample Node.js application demonstrates a confidential client application w
 | **Expose an API scope**           | api://{clientid}/user_impersonation                                          | Required value for this sample. <br/> The Node Web App registration will reference this value.     |
 | **accessTokenAcceptedVersion**    | 2                                                                            | Required value for this sample.                                                                    |
 
-### 2. Register Node Web App
+### 2. Register Node web app
 
 Complete the steps in [Register an application with the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app) to register the sample app.
 
