@@ -3,10 +3,10 @@
 # Metadata required by https://docs.microsoft.com/samples/browse/
 # Metadata properties: https://review.docs.microsoft.com/help/contribute/samples/process/onboarding?branch=main#add-metadata-to-readme
 languages:
-- Node.Js
+- Node.js
 page_type: sample
-name: "Node.Js API that protects its own endpoint"
-description: "This Node.Js API protects its own endpoint using JWT scope validation."
+name: "Node.js API that protects its own endpoint"
+description: "This Node.js API protects its own endpoint using JWT scope validation."
 products:
 - azure
 - azure-active-directory
@@ -20,7 +20,7 @@ urlFragment: ms-identity-docs-code-webapp-nodejs
 ![Build passing.](https://img.shields.io/badge/build-passing-brightgreen.svg) ![Code coverage.](https://img.shields.io/badge/coverage-100%25-brightgreen.svg) ![License.](https://img.shields.io/badge/license-MIT-green.svg)
 -->
 
-This Node.Js sample protects its own endpoint using JWT scope validation.
+This Node.js sample protects its own endpoint using JWT scope validation.
 
 ```console
 $ curl http://localhost:8080 -H "Authorization: Bearer {valid-access-token}"
@@ -32,7 +32,7 @@ Hello, world. You were able to access this because you provided a valid access t
 ## Prerequisites
 
 - Azure Active Directory (Azure AD) tenant and the permissions or role required for managing app registrations in the tenant.
-- Node.Js 16+
+- Node.js 16+
 
 ## Setup
 
@@ -66,7 +66,7 @@ issuer: ''
 
 ### 3. Install package(s)
 
-To install Node.Js libraries into your (virtual) environment:
+To install Node.js libraries into your (virtual) environment:
 
 ```bash
 npm install
@@ -91,7 +91,7 @@ Hello, world. You were able to access this because you provided a valid access t
 
 ## About the code
 
-This Node.Js API has a single route that requires an access token. The access token will be automatically validated by MSAL. A missing or invalid (expired, wrong audience, etc) token will result in a `401` response. An otherwise valid token without the proper scopes will result in a `403` response. A valid token with a proper scope of (`Greeting.Read`) will result in a "Hello, world" message.
+This Node.js API has a single route that requires an access token. The access token will be automatically validated by MSAL. A missing or invalid (expired, wrong audience, etc) token will result in a `401` response. An otherwise valid token without the proper scopes will result in a `403` response. A valid token with a proper scope of (`Greeting.Read`) will result in a "Hello, world" message.
 
 ## Reporting problems
 
