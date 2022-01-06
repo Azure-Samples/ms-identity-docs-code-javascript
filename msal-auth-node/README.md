@@ -44,7 +44,7 @@ Use these settings in your app registration.
 
 | App registration <br/> setting    | Value for this sample app                                                    | Notes                                                                                              |
 |:---------------------------------:|:-----------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------|
-| **Name**                          | `Node Web API`                                                               | Suggested value for this sample. <br/> You can change the app name at any time.                    |
+| **Name**                          | `Node web API`                                                               | Suggested value for this sample. <br/> You can change the app name at any time.                    |
 | **Supported account types**    | **Accounts in this organizational directory only (Single tenant)**   | Suggested value for this sample.                                                 |
 | **Platform type**              | _None_                                                               | No redirect URI required; don't select a platform.                               |
 | **Scopes defined by this API** | **Scope name**: `Greeting.Read`<br/>**Who can consent?**: **Admins and users**<br/>**Admin consent display name**: `Read API Greetings`<br/>**Admin consent description**: `Allows the user to see greetings from the API.`<br/>**User consent display name**: `Read API Greetings`<br/>**User consent description**: `Allows you to see greetings from the API.`<br/>**State**: **Enabled** | Required scope for this sample. |
