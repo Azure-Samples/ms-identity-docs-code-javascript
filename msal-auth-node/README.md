@@ -71,8 +71,6 @@ app.use(jwt({
 }))
 ```
 
-
-
 ### 3. Install package(s)
 
 To install Node.Js libraries into your (virtual) environment:
