@@ -36,7 +36,7 @@ Hello, world. You were able to access this because you provided a valid access t
 
 ## Setup
 
-### 1. Register your Web API
+### 1. Register your web API
 
 Complete the steps in [Register an application with the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app) to register the sample app.
 
