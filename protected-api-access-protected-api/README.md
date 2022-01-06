@@ -27,7 +27,7 @@ This sample Node.js application demonstrates a confidential client application w
 
 - Azure Active Directory (Azure AD) tenant and the permissions or role required for managing app registrations in the tenant.
 - Node.Js 16+
-- An existing Web API
+- An existing web API
 
 ## Setup
 
