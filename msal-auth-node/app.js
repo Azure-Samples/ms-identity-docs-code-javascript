@@ -15,9 +15,8 @@ const app = express()
 
 app.use(jwt({
    secret: jwks.expressJwtSecret({
-   
-   // Full URL, in the form of: https://login.microsoftonline.com/<tenant>/discovery/v2.0/keys
-   jwksUri: ''
+     // Full URL, in the form of: https://login.microsoftonline.com/<tenant>/discovery/v2.0/keys
+     jwksUri: ''
   }),
  
   // 'Application (client) ID' of app registration in the Azure portal - this value is a GUID
