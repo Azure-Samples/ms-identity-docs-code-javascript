@@ -51,10 +51,6 @@ Use these settings in your app registration.
 
 
 > :information_source: **Bold text** in the tables above matches (or is similar to) a UI element in the Azure portal, while `code formatting` indicates a value you enter into a text box in the Azure portal.
-
-
-
-
 ### 4. Update code sample with app registration values
 
 ```javascript
