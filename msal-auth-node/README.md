@@ -98,8 +98,7 @@ Hello, world. You were able to access this because you provided a valid access t
 
 ## About the code
 
-This Node.Js API has a single route that requires an access token. The access token will be automatically validated by MSAL. A missing or invalid (expired, wrong audience, etc) token will result in a `401` response. An otherwise valid token without the proper scopes will result in a `403` response. A valid token with a proper scope of (`Greeting.Read`) will result in a "Hello, world." message.
-
+This Node.Js API has a single route that requires an access token. The access token will be automatically validated by MSAL. A missing or invalid (expired, wrong audience, etc) token will result in a `401` response. An otherwise valid token without the proper scopes will result in a `403` response. A valid token with a proper scope of (`Greeting.Read`) will result in a "Hello, world" message.
 
 ## Reporting problems
 
