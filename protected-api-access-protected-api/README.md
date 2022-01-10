@@ -64,12 +64,6 @@ Use these settings in your app registration.
   }
 ```
 
-```javascript
-  secret: jwks.expressJwtSecret({
-    // Full URL, in the form of: https://login.microsoftonline.com/<tenant>/discovery/v2.0/keys
-    jwksUri: ''
-  }),
-```
 
 
 ### 3. Install package(s)
