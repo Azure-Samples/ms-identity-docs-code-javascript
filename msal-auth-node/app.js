@@ -22,6 +22,7 @@ const config = {
 
 // Initialize Express
 const app = express()
+
 // Add Express middleware to validate JWT access tokens
 app.use(jwt({
   secret: jwks.expressJwtSecret({
