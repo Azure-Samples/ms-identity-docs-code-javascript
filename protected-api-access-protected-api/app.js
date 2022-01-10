@@ -36,6 +36,7 @@ const config = {
 // Initialize MSAL
 const msalConfidentialClientApp = new msal.ConfidentialClientApplication(config)
 
+// Initialize Express
 const app = express()
 
 // Validate the token from the user
@@ -60,6 +61,7 @@ app.get('/me', jwtAuthz(['user_impersonation'], { customScopeKey: 'scp' }), (req
   // Get the user's token
   const authHeader = req.headers.authorization
 
+  // Required for the on-behalf-of request (token and scope(s))
   const oboRequest = {
     oboAssertion: authHeader.split(' ')[1],
     scopes: ['user.read']
@@ -72,6 +74,7 @@ app.get('/me', jwtAuthz(['user_impersonation'], { customScopeKey: 'scp' }), (req
       headers: { Authorization: `Bearer ${response.accessToken}` }
     }
 
+    // Upon receiving the response from Graph, delivery the output to the user
     const callback = function (graphResponse) {
       graphResponse.on('data', function (chunk) {
         res.send(chunk)
