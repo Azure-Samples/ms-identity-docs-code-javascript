@@ -1,6 +1,6 @@
 /*
  This application demonstrates how to issue a call to a protected API
- using the On-behalf-of flow.  A request will be issued to the
+ using the on-behalf-of OAuth2 flow.  A request will be issued to the
  Microsoft Graph /me endpoint on behalf of the authenticated user.
 */
 
