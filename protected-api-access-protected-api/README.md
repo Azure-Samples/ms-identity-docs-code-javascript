@@ -21,8 +21,26 @@ urlFragment: ms-identity-docs-code-api-nodejs
 ![Build passing.](https://img.shields.io/badge/build-passing-brightgreen.svg) ![Code coverage.](https://img.shields.io/badge/coverage-100%25-brightgreen.svg) ![License.](https://img.shields.io/badge/license-MIT-green.svg)
 -->
 
-This sample Node.js application demonstrates a confidential client application which calls a protected API which then makes a request to Microsoft Graph via the on-behalf-of flow.
+This Node.js Express API application uses the Microsoft Authentication Library for JavaScript (MSAL.js) to require authorization for clients accessing a JWT-protected route, and then calls Microsoft Graph on behalf of the client.
 
+```console
+$ curl http://localhost:8080/me -H "Authorization: Bearer {valid-access-token}"
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users/$entity",
+  "businessPhones": ["+1 (999) 5551001"],
+  "displayName": "Contoso Employee",
+  "givenName": "Contoso",
+  "jobTitle": "Worker",
+  "mail": "cemployee@contoso.com",
+  "mobilePhone": "1 999-555-1001",
+  "officeLocation": "Contoso Plaza/F30",
+  "preferredLanguage": null,
+  "surname": "Employee",
+  "userPrincipalName": "contoso_employee@contoso.com",
+  "id": "e3a49d8b-d849-48eb-9947-37c1f9589812"
+}
+
+```
 ## Prerequisites
 
 - Azure Active Directory (Azure AD) tenant and the permissions or role required for managing app registrations in the tenant.
@@ -32,7 +50,7 @@ This sample Node.js application demonstrates a confidential client application w
 
 ### 1. Register the app
 
-Complete the steps in [Register an application with the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app) to register the sample app.
+First, complete the steps in [Configure an application to expose a web API](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-expose-web-apis) to register the sample API and expose its scopes.
 
 Use these settings in your app registration.
 
@@ -44,24 +62,21 @@ Use these settings in your app registration.
 | **Client secret**                 | _**Value** of the client secret (not its ID)_                                | :warning: Record this value immediately! <br/> It's shown only _once_ (when you create it).        |
 | **API Permissions**               | `user_impersonation`                                                         | Create a new permission called user_impersonation.  Required value for this sample.      |
 
-
 > :information_source: **Bold text** in the tables above matches (or is similar to) a UI element in the Azure portal, while `code formatting` indicates a value you enter into a text box in the Azure portal.
-
-
 
 ### 2. Update code sample with app registration values
 
 ```javascript
-  auth: {
-    // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
-    clientId: '',
-    
-    // Client secret 'Value' (not the ID) from 'Client secrets' in app registration in Azure portal
-    clientSecret: '',
-    
-    // Full directory URL, in the form of https://login.microsoftonline.com/<tenant>
-    authority: ''
-  }
+auth: {
+  // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
+  clientId: '',
+
+  // Client secret 'Value' (not the ID) from 'Client secrets' in app registration in Azure portal
+  clientSecret: '',
+
+  // Full directory URL, in the form of https://login.microsoftonline.com/<tenant>
+  authority: ''
+}
 ```
 
 
@@ -83,31 +98,29 @@ node app.js
 ## Browse to the application
 
 Using postman or a similar app, navigate to **http://localhost:8080/me**
-You will need to provide an HTTP GET request such as:
-
-Authorization: Bearer {token}
-
-
-If everything worked, the sample app should produce the JSON-formatted output of a graph /me request for your user.
+For example, if you use curl and everything worked, the sample you should receive a response from the API similar to this:
 
 ```console
+$ curl http://localhost:8080/me -H "Authorization: Bearer {VALID-ACCESS-TOKEN}"
 {
-  "@odata.context":"https://graph.microsoft.com/v1.0/$metadata#users/$entity",
-  "businessPhones":[],
-  "displayName":"Firstname Lastname",
-  "givenName":"",
-  "jobTitle":null,
-  "mail":null,
-  "mobilePhone":null,
-  "officeLocation":null,
-  "preferredLanguage":null,
-  "surname":"Lastname",
-  "userPrincipalName":"",
-  "id":"00000000-0000-0000-0000-000000000000"
-  }
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users/$entity",
+  "businessPhones": ["+1 (999) 5551001"],
+  "displayName": "Contoso Employee",
+  "givenName": "Contoso",
+  "jobTitle": "Worker",
+  "mail": "cemployee@contoso.com",
+  "mobilePhone": "1 999-555-1001",
+  "officeLocation": "Contoso Plaza/F30",
+  "preferredLanguage": null,
+  "surname": "Employee",
+  "userPrincipalName": "contoso_employee@contoso.com",
+  "id": "e3a49d8b-d849-48eb-9947-37c1f9589812"
+}
 ```
 
+### Generating a valid access token
 
+Follow the instructions in [Gaining consent for the middle-tier application](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow#gaining-consent-for-the-middle-tier-application), including setting the API's app registration manifest value of **knownClientApplications**.
 
 ## About the code
 
