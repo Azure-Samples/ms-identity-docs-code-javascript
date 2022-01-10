@@ -40,7 +40,7 @@ Use these settings in your app registration.
 |:---------------------------------:|:-----------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------|
 | **Name**                          | `Node Web APP`                                                               | Suggested value for this sample. <br/> You can change the app name at any time.                    |
 | **Supported account types**       | **Accounts in this organizational directory only (Single tenant)**           | Suggested value for this sample.                                                                   |
-| **Platform type**                 | **Web**                                                                      | Required value for this sample.                                                                    |
+| **Platform type**                 | _None_                                                                      | No redirect URI required; don't select a platform.                                                                    |
 | **Client secret**                 | _**Value** of the client secret (not its ID)_                                | :warning: Record this value immediately! <br/> It's shown only _once_ (when you create it).        |
 | **API Permissions**               | `user_impersonation`                                                         | Create a new permission called user_impersonation.  Required value for this sample.      |
 
