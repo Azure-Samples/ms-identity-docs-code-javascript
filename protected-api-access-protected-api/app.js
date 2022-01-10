@@ -18,8 +18,8 @@ const jwtAuthz = require('express-jwt-authz')
 // Used to make the HTTP GET request to the Graph API
 const https = require('https')
 
-// Initialize MSAL
-const msalConfidentialClientApp = new msal.ConfidentialClientApplication({
+// MSAL configs
+const config = {
   auth: {
     // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
     clientId: '',
@@ -30,7 +30,11 @@ const msalConfidentialClientApp = new msal.ConfidentialClientApplication({
     // Full directory URL, in the form of https://login.microsoftonline.com/<tenant>
     authority: ''
   }
-})
+}
+
+
+// Initialize MSAL
+const msalConfidentialClientApp = new msal.ConfidentialClientApplication(config)
 
 const app = express()
 
@@ -40,10 +44,13 @@ app.use(jwt({
     // Full URL, in the form of: https://login.microsoftonline.com/<tenant>/discovery/v2.0/keys
     jwksUri: ''
   }),
+ 
   // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
-  audience: '',
+  audience: config.auth.clientId,
+ 
   // Full URL, in the form of: https://login.microsoftonline.com/<tenant>/v2.0
-  issuer: '',
+  issuer: config.auth.authority + '/v2.0',
+ 
   // Algorithm for MSAL tokens is R256
   algorithms: ['RS256']
 }))
