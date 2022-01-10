@@ -21,7 +21,10 @@ urlFragment: ms-identity-docs-code-api-obo-nodejs
 ![Build passing.](https://img.shields.io/badge/build-passing-brightgreen.svg) ![Code coverage.](https://img.shields.io/badge/coverage-100%25-brightgreen.svg) ![License.](https://img.shields.io/badge/license-MIT-green.svg)
 -->
 
-This Node.js Express API application uses the Microsoft Authentication Library for JavaScript (MSAL.js) to require authorization for clients accessing a JWT-protected route, and then calls Microsoft Graph on behalf of the client.
+This Node.js application uses the Express web framework. The app has a single route that requires an access token. The access token will be automatically validated by MSAL:
+- A missing or invalid (expired, wrong audience, etc) token will result in a `401` response.
+- An otherwise valid token without the proper scope will result in a `403` response.
+- A valid token with the proper scope of `user_impersonation` will be accepted, and the token will then be exchanged in an on-behalf-of OAuth flow to call to Microsoft Graph. The results of the Microsoft Graph call are then returned as the results of the API call.
 
 ```console
 $ curl http://localhost:8080/me -H "Authorization: Bearer {valid-access-token}"
