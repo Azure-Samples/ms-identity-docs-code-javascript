@@ -1,35 +1,39 @@
 /*
- This application demonstrates how to include
- authorization for an API endpoint in Node.Js 16.
+ This application demonstrates how to
+ issue a call to a protected API.
 */
 
-// Node.Js Express Framework
+// Node.js Express Framework
 const express = require('express')
 
-// Libraries used to validate authentication tokens
+// Used to validate JWT access tokens
 const jwt = require('express-jwt')
 const jwks = require('jwks-rsa')
 const jwtAuthz = require('express-jwt-authz')
 
-const app = express()
+const config = {
+  auth: {
+    // 'Directory (tenant) ID' of app registration in the Azure portal - this value is a GUID
+    tenant: '',
 
+    // 'Application (client) ID' of app registration in the Azure portal - this value is a GUID
+    audience: ''
+  }
+}
+
+// Initialize Express
+const app = express()
+// Add Express middleware to validate JWT access tokens
 app.use(jwt({
-   secret: jwks.expressJwtSecret({
-     // Full URL, in the form of: https://login.microsoftonline.com/<tenant>/discovery/v2.0/keys
-     jwksUri: ''
+  secret: jwks.expressJwtSecret({
+    jwksUri: 'https://login.microsoftonline.com/' + config.auth.tenant + '/discovery/v2.0/keys'
   }),
- 
-  // 'Application (client) ID' of app registration in the Azure portal - this value is a GUID
-  audience: '',
- 
-  // Full URL, in the form of: https://login.microsoftonline.com/<tenant>/v2.0
-  issuer: '',
- 
-  // Encryption algorithm
+  audience: config.auth.audience,
+  issuer: 'https://login.microsoftonline.com/' + config.auth.tenant + '/v2.0',
   algorithms: ['RS256']
 }))
 
-// Verify the token is valid and contains 'Greeting.Read' for the scope to access the endpoint.
+// Verify the JWT access token is valid and contains 'Greeting.Read' for the scope to access the endpoint.
 // Instruct jwtAuthz to pull scopes from the 'scp' claim, which is the claim used by Azure AD.
 app.get('/', jwtAuthz(['Greeting.Read'], { customScopeKey: 'scp' }), (req, res) => {
   res.send('Hello, world. You were able to access this because you provided a valid access token with the Greeting.Read scope as a claim.')
