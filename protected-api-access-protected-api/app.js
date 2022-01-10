@@ -46,8 +46,6 @@ app.use(jwt({
   }),
   audience: config.auth.clientId,
   issuer: config.auth.authority + '/v2.0',
-
-  // Algorithm for MSAL tokens is R256
   algorithms: ['RS256']
 }))
 
