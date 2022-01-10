@@ -39,7 +39,7 @@ const msalConfidentialClientApp = new msal.ConfidentialClientApplication(config)
 // Initialize Express
 const app = express()
 
-// Validate the token from the user
+// Add Express middleware to validate JWT access tokens
 app.use(jwt({
   secret: jwks.expressJwtSecret({
     // Full URL, in the form of: https://login.microsoftonline.com/<tenant>/discovery/v2.0/keys
