@@ -28,8 +28,8 @@ This Node.js application uses the Express web framework. The app has a single ro
 ```console
 $ curl http://localhost:8080/ -H "Authorization: Bearer {valid-access-token}"
 Hello, world. You were able to access this because you provided a valid access token with the Greeting.Read scope as a claim.
-
 ```
+
 ## Prerequisites
 
 - Azure Active Directory (Azure AD) tenant and the permissions or role required for managing app registrations in the tenant.
