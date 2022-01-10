@@ -1,6 +1,8 @@
 /*
- This application demonstrates how to issue a call to a protected API.
+ This application demonstrates how to include
+ authorization for an API endpoint in Node.js 16.
 */
+
 
 // Node.js Express Framework
 const express = require('express')
