@@ -11,7 +11,7 @@ products:
 - azure
 - azure-active-directory
 - ms-graph
-urlFragment: ms-identity-docs-code-api-nodejs
+urlFragment: ms-identity-docs-code-api-obo-nodejs
 ---
 -->
 
