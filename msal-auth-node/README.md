@@ -20,10 +20,7 @@ urlFragment: ms-identity-docs-code-api-nodejs
 ![Build passing.](https://img.shields.io/badge/build-passing-brightgreen.svg) ![Code coverage.](https://img.shields.io/badge/coverage-100%25-brightgreen.svg) ![License.](https://img.shields.io/badge/license-MIT-green.svg)
 -->
 
-This Node.js application uses the Express web framework. The app has a single route that requires an access token. The access token will be automatically validated by MSAL:
-- A missing or invalid (expired, wrong audience, etc) token will result in a `401` response.
-- An otherwise valid token without the proper scope will result in a `403` response.
-- A valid token with the proper scope of `Greeting.Read` will be accepted, and the API will return a "Hello, world" message.
+This Node.js API protects its own protected endpoint using JWT scope validation.
 
 ```console
 $ curl http://localhost:8080/ -H "Authorization: Bearer {valid-access-token}"
