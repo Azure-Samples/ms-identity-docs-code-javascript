@@ -68,7 +68,8 @@ app.get('/me', jwtAuthz(['user_impersonation'], { customScopeKey: 'scp' }), (req
       headers: { Authorization: `Bearer ${response.accessToken}` }
     }
 
-    // Perform an HTTP GET request against the Graph endpoint with the token issued by Graph on-behalf-of the user
+    // Perform an HTTP GET request against the Graph endpoint with the access token issued by
+    // Azure AD on behalf of the user.
     https.request('https://graph.microsoft.com/v1.0/me', options, (graphResponse) => {
        // Upon receiving the response from Microsoft Graph, deliver the output
        graphResponse.on('data', function (chunk) {
