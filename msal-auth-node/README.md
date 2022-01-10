@@ -26,7 +26,7 @@ This Node.js application uses the Express web framework. The app has a single ro
 - A valid token with the proper scope of `Greeting.Read` will be accepted, and the API will return a "Hello, world" message.
 
 ```console
-$ curl http://localhost:8080/me -H "Authorization: Bearer {valid-access-token}"
+$ curl http://localhost:8080/ -H "Authorization: Bearer {valid-access-token}"
 {
   "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users/$entity",
   "businessPhones": ["+1 (999) 5551001"],
@@ -99,7 +99,7 @@ Using Postman, curl, or a similar application, issue an HTTP GET request to *htt
 For example, if you use curl and everything worked, the sample you should receive a response from the API similar to this:
 
 ```console
-$ curl http://localhost:8080/me -H "Authorization: Bearer {VALID-ACCESS-TOKEN}"
+$ curl http://localhost:8080/ -H "Authorization: Bearer {VALID-ACCESS-TOKEN}"
 {
   "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users/$entity",
   "businessPhones": ["+1 (999) 5551001"],
