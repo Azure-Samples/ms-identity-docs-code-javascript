@@ -5,12 +5,12 @@
 languages:
 - Node.js
 page_type: sample
-name: "Node.js API that protects its own endpoint"
-description: "This Node.js API protects its own endpoint using JWT scope validation."
+name: "Node.js application that makes a request to a protected API"
+description: "This Node.js API protects its own protected endpoint using JWT scope validation."
 products:
 - azure
 - azure-active-directory
-urlFragment: ms-identity-docs-code-webapp-nodejs
+urlFragment: ms-identity-docs-code-api-nodejs
 ---
 -->
 
@@ -20,15 +20,29 @@ urlFragment: ms-identity-docs-code-webapp-nodejs
 ![Build passing.](https://img.shields.io/badge/build-passing-brightgreen.svg) ![Code coverage.](https://img.shields.io/badge/coverage-100%25-brightgreen.svg) ![License.](https://img.shields.io/badge/license-MIT-green.svg)
 -->
 
-This Node.js sample protects its own endpoint using JWT scope validation.
+This Node.js application uses the Express web framework. The app has a single route that requires an access token. The access token will be automatically validated by MSAL:
+- A missing or invalid (expired, wrong audience, etc) token will result in a `401` response.
+- An otherwise valid token without the proper scope will result in a `403` response.
+- A valid token with the proper scope of `Greeting.Read` will be accepted, and the API will return a "Hello, world" message.
 
 ```console
-$ curl http://localhost:8080 -H "Authorization: Bearer {valid-access-token}"
-Hello, world. You were able to access this because you provided a valid access token with the Greeting.Read scope as a claim.
+$ curl http://localhost:8080/me -H "Authorization: Bearer {valid-access-token}"
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users/$entity",
+  "businessPhones": ["+1 (999) 5551001"],
+  "displayName": "Contoso Employee",
+  "givenName": "Contoso",
+  "jobTitle": "Worker",
+  "mail": "cemployee@contoso.com",
+  "mobilePhone": "1 999-555-1001",
+  "officeLocation": "Contoso Plaza/F30",
+  "preferredLanguage": null,
+  "surname": "Employee",
+  "userPrincipalName": "contoso_employee@contoso.com",
+  "id": "e3a49d8b-d849-48eb-9947-37c1f9589812"
+}
+
 ```
-
-<!-- TODO: Link to first tutorial in series when published. -->
-
 ## Prerequisites
 
 - Azure Active Directory (Azure AD) tenant and the permissions or role required for managing app registrations in the tenant.
@@ -36,15 +50,15 @@ Hello, world. You were able to access this because you provided a valid access t
 
 ## Setup
 
-### 1. Register your web API
+### 1. Register the app
 
-Complete the steps in [Register an application with the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app) to register the sample app.
+First, complete the steps in [Configure an application to expose a web API](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-expose-web-apis) to register the sample API and expose its scopes.
 
 Use these settings in your app registration.
 
 | App registration <br/> setting    | Value for this sample app                                                    | Notes                                                                                              |
 |:---------------------------------:|:-----------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------|
-| **Name**                          | `Node web API`                                                               | Suggested value for this sample. <br/> You can change the app name at any time.                    |
+| **Name**                          | `Node Web API`                                                               | Suggested value for this sample. <br/> You can change the app name at any time.                    |
 | **Supported account types**    | **Accounts in this organizational directory only (Single tenant)**   | Suggested value for this sample.                                                 |
 | **Platform type**              | _None_                                                               | No redirect URI required; don't select a platform.                               |
 | **Scopes defined by this API** | **Scope name**: `Greeting.Read`<br/>**Who can consent?**: **Admins and users**<br/>**Admin consent display name**: `Read API Greetings`<br/>**Admin consent description**: `Allows the user to see greetings from the API.`<br/>**User consent display name**: `Read API Greetings`<br/>**User consent description**: `Allows you to see greetings from the API.`<br/>**State**: **Enabled** | Required scope for this sample. |
@@ -55,19 +69,18 @@ Use these settings in your app registration.
 ### 2. Update code sample with app registration values
 
 ```javascript
-// JWKS URI in the form of: https://login.microsoftonline.com/<tenant>/discovery/v2.0/keys
-jwksUri: ''
+auth: {
+  // 'Directory (tenant) ID' of app registration in the Azure portal - this value is a GUID
+  tenant: '',
 
-// 'Application (client) ID' of app registration in Azure portal - this value is a GUID
-audience: ''
-
-// Full directory URL, in the form of: https://login.microsoftonline.com/<tenant>/v2.0
-issuer: ''
+  // 'Application (client) ID' of app registration in the Azure portal - this value is a GUID
+  audience: ''
+}
 ```
 
 ### 3. Install package(s)
 
-To install Node.js libraries into your (virtual) environment:
+To install Node.js libraries:
 
 ```bash
 npm install
@@ -79,16 +92,33 @@ npm install
 node app.js
 ```
 
-## Access the API
+## Browse to the application
 
-Open postman, curl, or similar and make an HTTP GET request to **http://localhost:8080** with an `Authorization` header of `Bearer {valid-access-token}`. If everything worked, the sample app should produce output similar to this:
+Using Postman, curl, or a similar application, issue an HTTP GET request to *http://localhost:8080/me* with an `Authorization` header of `Bearer {VALID-ACCESS-TOKEN}`.
+
+For example, if you use curl and everything worked, the sample you should receive a response from the API similar to this:
 
 ```console
-$ curl http://localhost:8080 -H "Authorization: Bearer {valid-access-token}"
-Hello, world. You were able to access this because you provided a valid access token with the Greeting.Read scope as a claim.
+$ curl http://localhost:8080/me -H "Authorization: Bearer {VALID-ACCESS-TOKEN}"
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users/$entity",
+  "businessPhones": ["+1 (999) 5551001"],
+  "displayName": "Contoso Employee",
+  "givenName": "Contoso",
+  "jobTitle": "Worker",
+  "mail": "cemployee@contoso.com",
+  "mobilePhone": "1 999-555-1001",
+  "officeLocation": "Contoso Plaza/F30",
+  "preferredLanguage": null,
+  "surname": "Employee",
+  "userPrincipalName": "contoso_employee@contoso.com",
+  "id": "e3a49d8b-d849-48eb-9947-37c1f9589812"
+}
 ```
 
+### Generating a valid access token
 
+Follow the instructions in [Gaining consent for the middle-tier application](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow#gaining-consent-for-the-middle-tier-application), including setting the API's app registration manifest value of **knownClientApplications**.
 
 ## About the code
 
