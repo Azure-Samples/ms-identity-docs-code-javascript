@@ -27,7 +27,6 @@ This sample Node.js application demonstrates a confidential client application w
 
 - Azure Active Directory (Azure AD) tenant and the permissions or role required for managing app registrations in the tenant.
 - Node.Js 16+
-- An existing web API
 
 ## Setup
 
@@ -68,7 +67,7 @@ Use these settings in your app registration.
 
 ### 3. Install package(s)
 
-To install Node.Js and MSAL libraries into your (virtual) environment:
+To install Node.Js and MSAL libraries:
 
 ```bash
 npm install
