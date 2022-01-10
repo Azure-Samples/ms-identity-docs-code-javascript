@@ -10,7 +10,7 @@ const msal = require('@azure/msal-node')
 // Node.js Express Framework
 const express = require('express')
 
-// Used to validate authentication tokens
+// Used to validate JWT access tokens
 const jwt = require('express-jwt')
 const jwks = require('jwks-rsa')
 const jwtAuthz = require('express-jwt-authz')
