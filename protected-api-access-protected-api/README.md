@@ -97,7 +97,8 @@ node app.js
 
 ## Browse to the application
 
-Using postman or a similar app, navigate to **http://localhost:8080/me**
+Using Postman, curl, or a similar application, issue an HTTP GET request to *http://localhost:8080/me* with an `Authorization` header of `Bearer {VALID-ACCESS-TOKEN}`.
+
 For example, if you use curl and everything worked, the sample you should receive a response from the API similar to this:
 
 ```console
