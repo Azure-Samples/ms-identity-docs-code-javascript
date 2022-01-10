@@ -23,8 +23,10 @@ const msalConfidentialClientApp = new msal.ConfidentialClientApplication({
   auth: {
     // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
     clientId: '',
+   
     // Client secret 'Value' (not the ID) from 'Client secrets' in app registration in Azure portal
     clientSecret: '',
+   
     // Full directory URL, in the form of https://login.microsoftonline.com/<tenant>
     authority: ''
   }
