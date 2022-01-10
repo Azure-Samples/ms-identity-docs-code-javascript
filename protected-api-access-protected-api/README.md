@@ -82,7 +82,7 @@ node app.js
 ## Browse to the application
 
 Using postman or a similar app, navigate to **http://localhost:8080/me**
-You will need to provide a POST request such as:
+You will need to provide an HTTP GET request such as:
 
 Authorization: Bearer {token}
 
