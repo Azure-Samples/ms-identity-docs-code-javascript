@@ -96,7 +96,22 @@ Authorization: Bearer {token}
 
 If everything worked, the sample app should produce the JSON-formatted output of a graph /me request for your user.
 
-
+```console
+{
+  "@odata.context":"https://graph.microsoft.com/v1.0/$metadata#users/$entity",
+  "businessPhones":[],
+  "displayName":"firstname lastname",
+  "givenName":"",
+  "jobTitle":null,
+  "mail":null,
+  "mobilePhone":null,
+  "officeLocation":null,
+  "preferredLanguage":null,
+  "surname":"Bouska",
+  "userPrincipalName":"",
+  "id":"00000000-0000-0000-0000-000000000000"
+  }
+```
 
 
 
