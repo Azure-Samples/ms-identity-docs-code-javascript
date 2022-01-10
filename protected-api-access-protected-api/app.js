@@ -42,8 +42,7 @@ const app = express()
 // Add Express middleware to validate JWT access tokens
 app.use(jwt({
   secret: jwks.expressJwtSecret({
-    // Full URL, in the form of: https://login.microsoftonline.com/<tenant>/discovery/v2.0/keys
-    jwksUri: ''
+    jwksUri: config.auth.authority + '/discovery/v2.0/keys'
   }),
   audience: config.auth.clientId,
   issuer: config.auth.authority + '/v2.0',
