@@ -52,7 +52,8 @@ app.use(jwt({
   algorithms: ['RS256']
 }))
 
-// Proceed to the /me endpoint if the user's token has 'user_impersonation' scope
+// Allow access to the /me endpoint if the provided JWT access token has
+// the 'user_impersonation' scope.
 app.get('/me', jwtAuthz(['user_impersonation'], { customScopeKey: 'scp' }), (req, res) => {
   // Get the user's token
   const authHeader = req.headers.authorization
