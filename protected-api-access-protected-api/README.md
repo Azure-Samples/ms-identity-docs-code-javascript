@@ -31,14 +31,7 @@ This sample Node.js application demonstrates a confidential client application w
 
 ## Setup
 
-### 1. Modify your existing Web API
-
-| App registration <br/> setting    | Value for this sample app                                                    | Notes                                                                                              |
-|:---------------------------------:|:-----------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------|
-| **Expose an API scope**           | api://{clientid}/user_impersonation                                          | Required value for this sample. <br/> The Node Web App registration will reference this value.     |
-| **accessTokenAcceptedVersion**    | 2                                                                            | Required value for this sample.                                                                    |
-
-### 2. Register Node web app
+### 1. Register the app
 
 Complete the steps in [Register an application with the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app) to register the sample app.
 
@@ -49,44 +42,27 @@ Use these settings in your app registration.
 | **Name**                          | `Node Web APP`                                                               | Suggested value for this sample. <br/> You can change the app name at any time.                    |
 | **Supported account types**       | **Accounts in this organizational directory only (Single tenant)**           | Suggested value for this sample.                                                                   |
 | **Platform type**                 | **Web**                                                                      | Required value for this sample.                                                                    |
-| **Redirect URI**                  | `http://localhost:8080/redirect`                                             | Required value for this sample.                                                                    |
 | **Client secret**                 | _**Value** of the client secret (not its ID)_                                | :warning: Record this value immediately! <br/> It's shown only _once_ (when you create it).        |
-| **API Permissions**               | `user_impersonation`                                                         | Create a new delegated permission called user_impersonation.  Required value for this sample.      |
-
-
-### 3. Modify your existing Web API
-
-Update these settings to reference the new Web App
-
-| App registration <br/> setting    | Value for this sample app                                                    | Notes                                                                                              |
-|:---------------------------------:|:-----------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------|
-| **knownClientApplications**      | Client ID (UUID) of the application created in step 2.                       | Required value for this sample.                                                                    |
+| **API Permissions**               | `user_impersonation`                                                         | Create a new permission called user_impersonation.  Required value for this sample.      |
 
 
 > :information_source: **Bold text** in the tables above matches (or is similar to) a UI element in the Azure portal, while `code formatting` indicates a value you enter into a text box in the Azure portal.
 
 
 
-
-### 4. Update code sample with app registration values
+### 2. Update code sample with app registration values
 
 ```javascript
-// 'Directory (tenant) ID' in Azure portal
-const tenant = ''
-
-const config = {
   auth: {
-
     // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
     clientId: '',
-
+    
     // Client secret 'Value' (not the ID) from 'Client secrets' in app registration in Azure portal
     clientSecret: '',
-
+    
     // Full directory URL, in the form of https://login.microsoftonline.com/<tenant>
-    authority: `https://login.microsoftonline.com/${tenant}`
+    authority: ''
   }
-}
 ```
 
 
