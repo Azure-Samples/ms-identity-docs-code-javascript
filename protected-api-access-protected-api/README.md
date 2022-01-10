@@ -5,8 +5,8 @@
 languages:
 - Node.js
 page_type: sample
-name: "Node.Js application that makes a request to the Graph API from a protected API on behalf of a user"
-description: "This sample Node.Js application shows a confidential client application which calls a protected API which make a request to Microsoft Graph using the on-behalf-of flow."
+name: "Node.js application that makes a request to the Graph API from a protected API on behalf of a user"
+description: "This sample Node.js application shows a confidential client application which calls a protected API which make a request to Microsoft Graph using the on-behalf-of flow."
 products:
 - azure
 - azure-active-directory
@@ -26,7 +26,7 @@ This sample Node.js application demonstrates a confidential client application w
 ## Prerequisites
 
 - Azure Active Directory (Azure AD) tenant and the permissions or role required for managing app registrations in the tenant.
-- Node.Js 16+
+- Node.js 16+
 
 ## Setup
 
@@ -68,7 +68,7 @@ Use these settings in your app registration.
 
 ### 3. Install package(s)
 
-To install Node.Js and MSAL libraries:
+To install Node.js and MSAL libraries:
 
 ```bash
 npm install
@@ -111,7 +111,7 @@ If everything worked, the sample app should produce the JSON-formatted output of
 
 ## About the code
 
-This demo shows how a confidential client application in Node.Js can call a protected web API on-behalf-of the initiating user.
+This demo shows how a confidential client application in Node.js can call a protected web API on-behalf-of the initiating user.
 
 
 ## Reporting problems
