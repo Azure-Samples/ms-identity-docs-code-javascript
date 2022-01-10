@@ -1,6 +1,5 @@
 /*
- This application demonstrates how to
- issue a call to a protected API.
+ This application demonstrates how to issue a call to a protected API.
 */
 
 // Node.js Express Framework
