@@ -90,10 +90,6 @@ $ curl http://localhost:8080/ -H "Authorization: Bearer {VALID-ACCESS-TOKEN}"
 Hello, world. You were able to access this because you provided a valid access token with the Greeting.Read scope as a claim.
 ```
 
-### Generating a valid access token
-
-Follow the instructions in [Gaining consent for the middle-tier application](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow#gaining-consent-for-the-middle-tier-application), including setting the API's app registration manifest value of **knownClientApplications**.
-
 ## About the code
 
 This Node.js API has a single route that requires an access token. The access token will be automatically validated by MSAL. A missing or invalid (expired, wrong audience, etc) token will result in a `401` response. An otherwise valid token without the proper scopes will result in a `403` response. A valid token with a proper scope of (`Greeting.Read`) will result in a "Hello, world" message.
