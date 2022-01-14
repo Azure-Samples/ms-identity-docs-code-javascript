@@ -61,7 +61,7 @@ app.get('/me', jwtAuthz(['user_impersonation'], { customScopeKey: 'scp' }), (req
     scopes: ['user.read']
   }
 
-  // Send the user's token to Graph, to receive a token for Graph on-behalf-of the user
+  // Send the user's access token to Graph, to receive an access token for Graph on-behalf-of the user
   msalConfidentialClientApp.acquireTokenOnBehalfOf(oboRequest).then((response) => {
     const options = {
       headers: { Authorization: `Bearer ${response.accessToken}` }
