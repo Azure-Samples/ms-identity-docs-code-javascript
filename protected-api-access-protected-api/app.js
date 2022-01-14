@@ -52,7 +52,7 @@ app.use(jwt({
 // Allow access to the /me endpoint if the provided JWT access token has
 // the 'user_impersonation' scope.
 app.get('/me', jwtAuthz(['user_impersonation'], { customScopeKey: 'scp' }), (req, res) => {
-  // Get the user's token
+  // Get the user's access token for *this* web API
   const authHeader = req.headers.authorization
 
   // Required for the on-behalf-of request (token and scope(s))
