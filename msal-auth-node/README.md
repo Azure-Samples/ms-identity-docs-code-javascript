@@ -5,7 +5,7 @@
 languages:
 - Node.js
 page_type: sample
-name: "Node.js application that makes a request to a protected API"
+name: "Node.js application that protects its endpoint"
 description: "This Node.js API protects its own protected endpoint using JWT scope validation."
 products:
 - azure
