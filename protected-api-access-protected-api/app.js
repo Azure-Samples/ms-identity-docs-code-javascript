@@ -55,7 +55,7 @@ app.get('/me', jwtAuthz(['user_impersonation'], { customScopeKey: 'scp' }), (req
   // Get the user's access token for *this* web API
   const authHeader = req.headers.authorization
 
-  // Required for the on-behalf-of request (token and scope(s))
+  // Required for the on-behalf-of request (access token and scope(s)) to the downstream web API (Microsoft Graph, in this case)
   const oboRequest = {
     oboAssertion: authHeader.split(' ')[1],
     scopes: ['user.read']
