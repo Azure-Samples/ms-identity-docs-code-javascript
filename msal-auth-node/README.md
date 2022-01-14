@@ -88,7 +88,7 @@ Hello, world. You were able to access this because you provided a valid access t
 
 ## About the code
 
-This Node.js application uses the Express web framework. The app has a single route that requires an access token. The access token will be automatically validated by MSAL:
+This Node.js application uses the Express framework. The app has a single route that requires an access token. The access token will be automatically validated by MSAL:
 - A missing or invalid (expired, wrong audience, etc) token will result in a `401` response.
 - An otherwise valid token without the proper scope will result in a `403` response.
 - A valid token with the proper scope of `Greeting.Read` will be accepted, and the API will return a "Hello, world" message.
