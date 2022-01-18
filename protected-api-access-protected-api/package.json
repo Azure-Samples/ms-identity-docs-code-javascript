@@ -1,9 +1,10 @@
 {
   "dependencies": {
-    "@azure/msal-node": "^1.4.0",
+    "@azure/msal-node": "^1.5.0",
     "express": "^4.17.2",
     "express-jwt": "^6.1.0",
     "express-jwt-authz": "^2.4.1",
+    "follow-redirects": "^1.14.7",
     "jwks-rsa": "^2.0.5"
   }
 }
