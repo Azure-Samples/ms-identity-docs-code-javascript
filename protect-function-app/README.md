@@ -11,7 +11,7 @@ products:
 - azure
 - azure-active-directory
 - azure-functions
-urlFragment: ms-identity-docs-code-functions-nodeja
+urlFragment: ms-identity-docs-code-functions-node
 ---
 -->
 # Node.js | Azure Function | protect an API | Microsoft identity platform
