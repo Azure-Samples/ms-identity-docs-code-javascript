@@ -9,12 +9,16 @@
 const jwt = require('jsonwebtoken')
 
 module.exports = async function (context, req) {
-  // Decode the JSON web token which is passed in via the Authorization header
-  const decodedToken = jwt.decode(req.headers.authorization.split(' ')[1])
+  try {
+    // Decode the JSON web token which is passed in via the Authorization header
+    const decodedToken = jwt.decode(req.headers.authorization.split(' ')[1])
 
-  // If the scope includes 'Greeting.Read', then accept the request with a greeting message and default 200 status code
-  // Otherwise reject the request with a failure message and 403 status code
-  context.res = (decodedToken.scp.includes('Greeting.Read'))
-    ? { body: 'Hello, world. You were able to access this because you provided a valid access token with the Greeting.Read scope as a claim.' }
-    : { body: 'Missing required scope.', status: 403 }
+    // If the scope includes 'Greeting.Read', then accept the request with a greeting message and default 200 status code
+    // Otherwise reject the request with a failure message and 403 status code
+    context.res = (decodedToken.scp.includes('Greeting.Read'))
+      ? { body: 'Hello, world. You were able to access this because you provided a valid access token with the Greeting.Read scope as a claim.' }
+      : { body: 'Missing required scope.', status: 403 }
+  } catch(error) {
+    context.res = { body: 'Invalid token.', status: 403 }
+  }
 }
