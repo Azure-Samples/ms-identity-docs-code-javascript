@@ -33,7 +33,7 @@ Hello, world. You were able to access this because you provided a valid access t
 - Azure Active Directory (Azure AD) tenant and the permissions or role required for managing app registrations in the tenant.
 - Node.js 16
 - [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local)
-- An empty, [Node.js 16 Function App (v4) deployed to Azure](https://docs.microsoft.com/en-us/azure/azure-functions/create-first-function-cli-node) and the permissions or role required to modify its settings
+- An empty, [Node.js 16 Function App (v4) deployed to Azure](https://docs.microsoft.com/azure/azure-functions/create-first-function-cli-node) and the permissions or role required to modify its settings
 
 ## Setup
 
@@ -70,10 +70,11 @@ Use these settings in your identity provider configuration.
 | **Token store**                 | _Unselected_                                            | Suggested value for this sample.                                                 |
 
 > :information_source: **Bold text** in the table matches (or is similar to) a UI element in the Azure portal, while `code formatting` indicates a value you enter into a text box in the Azure portal.
+
 ### 3. Deploy the Function app
 
 ```console
-func azure functionapp publish <your-Function-App-name>
+func azure functionapp publish <your-function-app-name>
 ```
 
 ## Access the API
