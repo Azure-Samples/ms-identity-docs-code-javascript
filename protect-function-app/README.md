@@ -112,6 +112,7 @@ If you can't get the sample working, you've checked [Stack Overflow](https://sta
 ### All other issues
 
 > :warning: WARNING: Any issue in this repository _not_ limited to running one of its sample apps will be closed without being addressed.
+
 For all other requests, see [Support and help options for developers | Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options).
 
 ## Contributing
