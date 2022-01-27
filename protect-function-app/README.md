@@ -95,8 +95,6 @@ This Azure Function is an anonymous HTTP trigger written in Node.js and uses the
 - A missing or invalid (expired, wrong audience, etc) token will result in a `401` response. (Handled by Azure Functions authentication)
 - An otherwise valid token without the proper scope will result in a 403 response.
 - A valid token with the proper scope of `Greeting.Read` will result in the "Hello, world" message.
-  
-
 
 ### Running locally
 
