@@ -26,8 +26,7 @@ const getGraphToken =  async (msalInstance, accounts) => {
   try{
     return await msalInstance.acquireTokenSilent(tokenRequest);
   } catch (e) {
-    const {accessToken} = await msalInstance.acquireTokenPopup(tokenRequest);
-    return accessToken;
+    return await msalInstance.acquireTokenPopup(tokenRequest);
   }
   
 }
