@@ -59,7 +59,7 @@ Use these settings in your app registration.
 | **Supported account types**       | **Accounts in this organizational directory only (Single tenant)**           | Suggested value for this sample.                                                                   |
 | **Platform type**                 | _None_                                                                       | No redirect URI required; don't select a platform.                                                                    |
 | **Client secret**                 | _**Value** of the client secret (not its ID)_                                | :warning: Record this value immediately! <br/> It's shown only _once_ (when you create it).        |
-| **API Permissions**               | `User.Read.All`                                                              | Add an Application Permission for Microsoft Graph. Grand admin consent. Required value for this sample.      |
+| **API Permissions**               | `User.Read.All`                                                              | Add an Application Permission for Microsoft Graph. Grant admin consent. Required value for this sample.      |
 
 > :information_source: **Bold text** in the tables above matches (or is similar to) a UI element in the Azure portal, while `code formatting` indicates a value you enter into a text box in the Azure portal.
 
