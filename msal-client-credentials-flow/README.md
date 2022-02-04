@@ -92,7 +92,7 @@ npm install
 node app.js
 ```
 
-If everything worked, the sample you should receive a response from the API similar to this:
+If everything worked, you should receive a response from the API similar to this:
 
 ```console
 $ node app.js
@@ -114,7 +114,7 @@ $ node app.js
 
 ## About the code
 
-This Node.js application uses the Microsoft Authentication Library (MSAL) to acquire a token for Graph as the application iteslf.  The application must be configured in Azure Active Directory to allow the application to request access tokens as itself.  The 'https' library is used to issue the request to Graph and collect the response.
+This Node.js application uses the Microsoft Authentication Library (MSAL) for Node.js to acquire a token for Graph as the application iteslf.  In Azure Active Directory (AAD) the API must have permissions configured with admin consent granted.  The 'https' library is used to issue the request to Graph and collect the response.
 
 ## Reporting problems
 
