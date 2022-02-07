@@ -11,11 +11,11 @@ products:
 - azure
 - azure-active-directory
 - ms-graph
-urlFragment: ms-identity-docs-code-api-ccf-nodejs
+urlFragment: ms-identity-docs-code-webapi-nodejs
 ---
 -->
 
-# Node.js | web API | access control, protected web API access (Microsoft Graph) | Microsoft identity platform
+# Node.js | web API | protected web API access (Microsoft Graph)  | Microsoft identity platform
 
 <!-- Build badges here
 ![Build passing.](https://img.shields.io/badge/build-passing-brightgreen.svg) ![Code coverage.](https://img.shields.io/badge/coverage-100%25-brightgreen.svg) ![License.](https://img.shields.io/badge/license-MIT-green.svg)
@@ -23,22 +23,32 @@ urlFragment: ms-identity-docs-code-api-ccf-nodejs
 
 This sample Node.js application demonstrates how to issue a call to a protected API using the client credentials flow.  A request will be issued to Microsoft Graph using the application's own identity.
 ```console
-$ curl http://localhost:8080/users
+$ curl http://localhost:8080/
 {
-  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users/$entity",
-  "businessPhones": ["+1 (999) 5551001"],
-  "displayName": "Contoso Employee",
-  "givenName": "Contoso",
-  "jobTitle": "Worker",
-  "mail": "cemployee@contoso.com",
-  "mobilePhone": "1 999-555-1001",
-  "officeLocation": "Contoso Plaza/F30",
-  "preferredLanguage": null,
-  "surname": "Employee",
-  "userPrincipalName": "contoso_employee@contoso.com",
-  "id": "e3a49d8b-d849-48eb-9947-37c1f9589812"
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#applications/$entity",
+  "id": "003c4673-d4a0-4eb6-8979-d6269e08b87e",
+  "deletedDateTime": null,
+  "appId": "c085fc22-2484-41c0-b795-2e940f51df64",
+  "applicationTemplateId": null,
+  "disabledByMicrosoftStatus": null,
+  "createdDateTime": "2021-12-17T16:45:43Z",
+  "displayName": "Node API",
+  "description": null,
+  "groupMembershipClaims": null,
+  "identifierUris": ["api://c085fc22-2484-41c0-b795-2e940f51df64"],
+  "isDeviceOnlyAuthSupported": null,
+  "isFallbackPublicClient": true,
+  "notes": null,
+  "publisherDomain": "contoso.onmicrosoft.com",
+  "serviceManagementReference": null,
+  "signInAudience": "AzureADMyOrg",
+  "tags": [],
+  "tokenEncryptionKeyId": null,
+  "defaultRedirectUri": null,
+  "certification": null,
+  "optionalClaims": null
+  …
 }
-
 ```
 ## Prerequisites
 
@@ -49,7 +59,7 @@ $ curl http://localhost:8080/users
 
 ### 1. Register the app
 
-First, complete the steps in [Configure an application to expose a web API](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-expose-web-apis) to register the sample API.
+First, complete the steps in [Quickstart: Register an application with the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app) to register the sample API.
 
 Use these settings in your app registration.
 
@@ -59,7 +69,6 @@ Use these settings in your app registration.
 | **Supported account types**       | **Accounts in this organizational directory only (Single tenant)**           | Suggested value for this sample.                                                                   |
 | **Platform type**                 | _None_                                                                       | No redirect URI required; don't select a platform.                                                                    |
 | **Client secret**                 | _**Value** of the client secret (not its ID)_                                | :warning: Record this value immediately! <br/> It's shown only _once_ (when you create it).        |
-| **API Permissions**               | `User.Read.All`                                                              | Add an Application Permission for Microsoft Graph. Grant admin consent. Required value for this sample.      |
 
 > :information_source: **Bold text** in the tables above matches (or is similar to) a UI element in the Azure portal, while `code formatting` indicates a value you enter into a text box in the Azure portal.
 
@@ -75,6 +84,9 @@ auth: {
 
   // Full directory URL, in the form of https://login.microsoftonline.com/<tenant>
   authority: ''
+  
+  // 'Object ID' of app registration in Azure portal - this value is a GUID
+  clientObjectId: ''
 }
 ```
 
@@ -95,27 +107,39 @@ node app.js
 If everything worked, you should receive a response from the API similar to this:
 
 ```console
-$ curl http://localhost:8080/users
+$ curl http://localhost:8080/
 {
-  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users/$entity",
-  "businessPhones": ["+1 (999) 5551001"],
-  "displayName": "Contoso Employee",
-  "givenName": "Contoso",
-  "jobTitle": "Worker",
-  "mail": "cemployee@contoso.com",
-  "mobilePhone": "1 999-555-1001",
-  "officeLocation": "Contoso Plaza/F30",
-  "preferredLanguage": null,
-  "surname": "Employee",
-  "userPrincipalName": "contoso_employee@contoso.com",
-  "id": "e3a49d8b-d849-48eb-9947-37c1f9589812"
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#applications/$entity",
+  "id": "003c4673-d4a0-4eb6-8979-d6269e08b87e",
+  "deletedDateTime": null,
+  "appId": "c085fc22-2484-41c0-b795-2e940f51df64",
+  "applicationTemplateId": null,
+  "disabledByMicrosoftStatus": null,
+  "createdDateTime": "2021-12-17T16:45:43Z",
+  "displayName": "Node API",
+  "description": null,
+  "groupMembershipClaims": null,
+  "identifierUris": ["api://c085fc22-2484-41c0-b795-2e940f51df64"],
+  "isDeviceOnlyAuthSupported": null,
+  "isFallbackPublicClient": true,
+  "notes": null,
+  "publisherDomain": "contoso.onmicrosoft.com",
+  "serviceManagementReference": null,
+  "signInAudience": "AzureADMyOrg",
+  "tags": [],
+  "tokenEncryptionKeyId": null,
+  "defaultRedirectUri": null,
+  "certification": null,
+  "optionalClaims": null
+  …
 }
-
 ```
 
 ## About the code
 
-This Node.js application uses the Microsoft Authentication Library (MSAL) for Node.js to acquire a token for Microsoft Graph as the application itself. In Azure Active Directory (AAD) the API must have permissions configured with admin consent granted. The 'https' library is used to issue the request to Graph and handle the response.
+This Node.js web API has a single route that supports anonymous access. When the anonymous route is called, the API requests its own application object from Microsoft Graph.
+
+This API uses the Microsoft Authentication Library (MSAL) for Node.js to acquire a token for Microsoft Graph as the application itself using the client credentials flow. The 'https' library is used to issue the request to Graph and handle the response.
 
 ## Reporting problems
 
