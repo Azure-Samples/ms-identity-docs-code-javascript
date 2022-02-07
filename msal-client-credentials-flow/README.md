@@ -5,8 +5,8 @@
 languages:
 - Node.js
 page_type: sample
-name: "Node.js application that makes a request to the Graph API as itself"
-description: "This sample Node.js application demonstrates how to issue a call to a protected API using the client credentials flow.  A request will be issued to Microsoft Graph using the application's own identity."
+name: "Node.js API that makes a request to the Graph API as itself"
+description: "This sample Node.js API demonstrates how to issue a call to a protected API using the client credentials flow.  A request will be issued to Microsoft Graph using the application's own identity."
 products:
 - azure
 - azure-active-directory
