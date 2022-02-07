@@ -23,7 +23,7 @@ urlFragment: ms-identity-docs-code-api-ccf-nodejs
 
 This sample Node.js application demonstrates how to issue a call to a protected API using the client credentials flow.  A request will be issued to Microsoft Graph using the application's own identity.
 ```console
-$ node app.js
+$ curl http://localhost:8080/users
 {
   "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users/$entity",
   "businessPhones": ["+1 (999) 5551001"],
@@ -95,7 +95,7 @@ node app.js
 If everything worked, you should receive a response from the API similar to this:
 
 ```console
-$ node app.js
+$ curl http://localhost:8080/users
 {
   "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users/$entity",
   "businessPhones": ["+1 (999) 5551001"],
@@ -110,6 +110,7 @@ $ node app.js
   "userPrincipalName": "contoso_employee@contoso.com",
   "id": "e3a49d8b-d849-48eb-9947-37c1f9589812"
 }
+
 ```
 
 ## About the code
