@@ -13,16 +13,18 @@ const express = require('express')
 // Used to make the HTTP GET request to the Graph API
 const https = require('https')
 
-// MSAL configuration
+// MSAL configs
 const msalConfig = {
-auth: {
-  // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
-  clientId: '',
-  // Client secret 'Value' (not the ID) from 'Client secrets' in app registration in Azure portal
-  clientSecret: '',
-  // Full directory URL, in the form of https://login.microsoftonline.com/<tenant>
-  authority: ''
-}
+  auth: {
+    // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
+    clientId: '',
+   
+    // Client secret 'Value' (not the ID) from 'Client secrets' in app registration in Azure portal
+    clientSecret: '',
+   
+    // Full directory URL, in the form of https://login.microsoftonline.com/<tenant>
+    authority: ''
+  }
 }
 
 // Initialize MSAL
