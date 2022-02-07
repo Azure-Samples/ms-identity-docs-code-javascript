@@ -115,7 +115,7 @@ $ curl http://localhost:8080/users
 
 ## About the code
 
-This Node.js application uses the Microsoft Authentication Library (MSAL) for Node.js to acquire a token for Graph as the application iteslf.  In Azure Active Directory (AAD) the API must have permissions configured with admin consent granted.  The 'https' library is used to issue the request to Graph and collect the response.
+This Node.js application uses the Microsoft Authentication Library (MSAL) for Node.js to acquire a token for Microsoft Graph as the application itself. In Azure Active Directory (AAD) the API must have permissions configured with admin consent granted. The 'https' library is used to issue the request to Graph and handle the response.
 
 ## Reporting problems
 
