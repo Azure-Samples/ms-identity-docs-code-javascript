@@ -76,6 +76,8 @@ Use these settings in your app registration.
 
 ### 2. Update code sample with app registration values
 
+In [_app.js_](app.js), update the Azure AD property values with those from your [app's registration in the Azure portal](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-expose-web-apis).
+
 ```javascript
 auth: {
   // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
