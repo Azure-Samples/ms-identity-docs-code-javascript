@@ -104,7 +104,7 @@ npm install
 node app.js
 ```
 
-If everything worked, you should receive a response from the API similar to this:
+If everything worked, you should receive a response from the downstream web API (Microsoft Graph, in this case) similar to this:
 
 ```console
 $ curl http://localhost:8080/
