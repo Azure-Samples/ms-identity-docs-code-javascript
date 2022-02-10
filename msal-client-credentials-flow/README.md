@@ -25,7 +25,7 @@ urlFragment: ms-identity-docs-code-webapi-nodejs
 This Node.js web API issues a call to a protected web API (Microsoft Graph) by using the OAuth 2.0 client credentials flow. The request to the Microsoft Graph endpoint is issued using the Node.js web API's own identity.
 
 ```console
-$ curl http://localhost:8080/
+$ curl http://localhost:8080/api/application
 {
   "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#applications/$entity",
   "id": "003c4673-d4a0-4eb6-8979-d6269e08b87e",
@@ -109,7 +109,7 @@ node app.js
 If everything worked, you should receive a response from the downstream web API (Microsoft Graph, in this case) similar to this:
 
 ```console
-$ curl http://localhost:8080/
+$ curl http://localhost:8080/api/application
 {
   "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#applications/$entity",
   "id": "003c4673-d4a0-4eb6-8979-d6269e08b87e",
