@@ -41,7 +41,7 @@ const tokenRequest = {
 // Initialize Express
 const app = express()
 
-app.get('/', (req, res) => {
+app.get('/api/application', (req, res) => {
   // Request a token for Graph as the application itself
   msalConfidentialClientApp.acquireTokenByClientCredential(tokenRequest).then((response) => {
     const options = {
