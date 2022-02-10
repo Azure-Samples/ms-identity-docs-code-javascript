@@ -131,7 +131,7 @@ $ curl http://localhost:8080/
   "defaultRedirectUri": null,
   "certification": null,
   "optionalClaims": null
-  …
+  ...
 }
 ```
 
