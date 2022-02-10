@@ -1,5 +1,5 @@
 /*
- This application demonstrates how to issue a call to a protected API
+ This application demonstrates how to issue a call to a protected web API
  using the client credentials flow.  A request will be issued to
  Microsoft Graph using the application's own identity.
 */
