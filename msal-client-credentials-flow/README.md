@@ -59,7 +59,7 @@ $ curl http://localhost:8080/
 
 ### 1. Register the app
 
-First, complete the steps in [Quickstart: Register an application with the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app) to register the sample API.
+First, complete the steps in [Quickstart: Register an application with the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app) to register the web API.
 
 Use these settings in your app registration.
 
