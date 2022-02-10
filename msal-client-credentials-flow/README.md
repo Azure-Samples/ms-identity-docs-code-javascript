@@ -92,7 +92,7 @@ auth: {
 
 ### 3. Install package(s)
 
-To install Node.js and MSAL libraries:
+Install the required Node.js and MSAL packages:
 
 ```bash
 npm install
