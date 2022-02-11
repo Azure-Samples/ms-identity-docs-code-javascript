@@ -141,7 +141,7 @@ $ curl http://localhost:8080/api/application
 
 ## About the code
 
-This Node.js web API has a single route (/api/application) that supports anonymous access.  When the anonymous route is called, the API requests its own application object from Microsoft Graph.
+This Node.js web API has a single route (_/api/application_) that supports anonymous access.  When the anonymous route is called, the API requests its own application object from Microsoft Graph.
 
 This web API uses the Microsoft Authentication Library (MSAL) for Node.js to get an access token for Microsoft Graph as the application itself using the client credentials flow.  The `Express.js` framework is used to simplify building an API and routing of requests.  The `https` library for Node.js is used to issue the HTTP GET request to Microsoft Graph and to handle the response.
 
