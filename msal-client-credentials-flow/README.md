@@ -143,7 +143,11 @@ $ curl http://localhost:8080/api/application
 
 This Node.js web API has a single route (_/api/application_) that supports anonymous access.  When the anonymous route is called, the API requests its own application object from Microsoft Graph.
 
-This web API uses the Microsoft Authentication Library (MSAL) for Node.js to get an access token for Microsoft Graph as the application itself using the client credentials flow.  The `Express.js` framework is used to simplify building an API and routing of requests.  The `https` library for Node.js is used to issue the HTTP GET request to Microsoft Graph and to handle the response.
+This web API uses the following:
+
+- [Microsoft Authentication Library for Node.js (MSAL Node)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) - Used by this web API to get an access token for Microsoft Graph. This API uses MSAL to execute the OAuth 2.0 client credentials grant flow to get the access token so it can use its own identity in its requests to the Microsoft Graph API.
+- [Express](https://expressjs.com/) (Node.js web framework) - Minimizes the amount of code required to build the web API and route the requests made to it by client applications.
+- [`https`](https://nodejs.org/api/https.html) (Node.js module) - For issuing "raw" HTTP `GET` requests to Microsoft Graph and handling the responses to those `GET` requests.
 
 ## Reporting problems
 
