@@ -37,7 +37,7 @@ $ curl http://localhost:8080/api/application
   "displayName": "Node Web API",
   "description": null,
   "groupMembershipClaims": null,
-  "identifierUris": ["api://c085fc22-2484-41c0-b795-2e940f51df64"],
+  "identifierUris": [],
   "isDeviceOnlyAuthSupported": null,
   "isFallbackPublicClient": true,
   "notes": null,
@@ -87,7 +87,7 @@ auth: {
   clientSecret: '',
 
   // Full directory URL, in the form of https://login.microsoftonline.com/<tenant>
-  authority: ''
+  authority: '',
   
   // 'Object ID' of app registration in Azure portal - this value is a GUID
   clientObjectId: ''
@@ -123,7 +123,7 @@ $ curl http://localhost:8080/api/application
   "displayName": "Node Web API",
   "description": null,
   "groupMembershipClaims": null,
-  "identifierUris": ["api://c085fc22-2484-41c0-b795-2e940f51df64"],
+  "identifierUris": [],
   "isDeviceOnlyAuthSupported": null,
   "isFallbackPublicClient": true,
   "notes": null,
