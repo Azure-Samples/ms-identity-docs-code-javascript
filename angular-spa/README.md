@@ -15,7 +15,7 @@ urlFragment: ms-identity-docs-code-app-device-code-powershell
 ---
 -->
 
-# Javascript | console | user sign-in, protected web API access (Microsoft Graph) | Microsoft identity platform
+# Angular | web | user sign-in, protected web API access (Microsoft Graph) | Microsoft identity platform
 
 <!-- Build badges here
 ![Build passing.](https://img.shields.io/badge/build-passing-brightgreen.svg) ![Code coverage.](https://img.shields.io/badge/coverage-100%25-brightgreen.svg) ![License.](https://img.shields.io/badge/license-MIT-green.svg)
