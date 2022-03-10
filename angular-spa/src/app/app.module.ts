@@ -23,10 +23,10 @@ export function MSALInstanceFactory(): IPublicClientApplication {
   return new PublicClientApplication({
     auth: {
       // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
-      clientId: 'c085fc22-2484-41c0-b795-2e940f51df64',
+      clientId: '',
     
       // Full directory URL, in the form of https://login.microsoftonline.com/<tenant>
-      authority: 'https://login.microsoftonline.com/332b3d1d-3231-4ec6-b306-18f563ad0743',
+      authority: '',
 
       // Must be the same redirectUri as what was provided in your AD app registration.
       redirectUri: '/'
