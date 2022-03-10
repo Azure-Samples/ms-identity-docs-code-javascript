@@ -41,10 +41,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
       if (this.msalGuardConfig.authRequest) {
         this.authService.loginRedirect({ ...this.msalGuardConfig.authRequest } as RedirectRequest);
-        console.log('beef');
       } else {
         this.authService.loginRedirect();
-        console.log('stew');
       }
 
   }
