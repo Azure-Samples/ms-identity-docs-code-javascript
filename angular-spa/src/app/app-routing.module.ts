@@ -1,9 +1,21 @@
+// Required for Angular
 import { NgModule } from '@angular/core';
+
+// Required for the Angular routing service
 import { Routes, RouterModule } from '@angular/router';
+
+// Required for the "Profile" page
 import { ProfileComponent } from './profile/profile.component';
+
+// Required for the "Home" page
 import { HomeComponent } from './home/home.component';
+
+// MsalGuard is required to protect routes and require authentication before accessing protected routes
 import { MsalGuard } from '@azure/msal-angular';
 
+// Define the possible routes
+// Specify MsalGuard on routes to be protected
+// '**' denotes a wild card
 const routes: Routes = [
   {
     path: 'profile',
@@ -13,28 +25,15 @@ const routes: Routes = [
     ]
   },
   {
-    // Needed for hash routing
-    path: 'code',
-    component: HomeComponent
-  },
-  {
-    path: '',
-    component: HomeComponent
-  },
-  {
-    // Needed for Error routing
-    path: 'error',
+    path: '**',
     component: HomeComponent
   }
 ];
 
-const isIframe = window !== window.parent && !window.opener;
-
+// Create an NgModule that contains all the directives for the routes specified above
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-    useHash: true,
-    // Don't perform initial navigation in iframes
-    initialNavigation: !isIframe ? 'enabled' : 'disabled'
+    useHash: true
   })],
   exports: [RouterModule]
 })

@@ -3,5 +3,5 @@
 <button *ngIf="!loginDisplay" (click)="login()">Login</button>
 <button *ngIf="loginDisplay" (click)="logout()">Logout</button>
 <div class="container">
-	<router-outlet *ngIf="!isIframe"></router-outlet>
+	<router-outlet></router-outlet>
 </div>

@@ -1,6 +1,11 @@
+// Required for Angular
 import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
+
+// Required for MSAL
 import { MsalService, MsalBroadcastService, MSAL_GUARD_CONFIG, MsalGuardConfiguration } from '@azure/msal-angular';
-import { AuthenticationResult, InteractionStatus, InteractionType, PopupRequest, RedirectRequest } from '@azure/msal-browser';
+import { InteractionStatus, RedirectRequest } from '@azure/msal-browser';
+
+// Required for RJXS
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 
@@ -10,7 +15,6 @@ import { filter, takeUntil } from 'rxjs/operators';
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'Angular 12 - MSAL Example';
-  isIframe = false;
   loginDisplay = false;
   private readonly _destroying$ = new Subject<void>();
 
@@ -20,9 +24,8 @@ export class AppComponent implements OnInit, OnDestroy {
     private msalBroadcastService: MsalBroadcastService
   ) { }
 
+  // On initialization of the page, display the page elements based on the user state
   ngOnInit(): void {
-    this.isIframe = window !== window.parent && !window.opener;
-
     this.msalBroadcastService.inProgress$
       .pipe(
         filter((status: InteractionStatus) => status === InteractionStatus.None),
@@ -33,26 +36,23 @@ export class AppComponent implements OnInit, OnDestroy {
       });
   }
 
+  // If the user is logged in, present the user with a "logged in" experience
   setLoginDisplay() {
     this.loginDisplay = this.authService.instance.getAllAccounts().length > 0;
   }
 
+  // Log the user in and redirect them if MSAL provides a redirect URI otherwise go to the default URI
   login() {
-
-      if (this.msalGuardConfig.authRequest) {
-        this.authService.loginRedirect({ ...this.msalGuardConfig.authRequest } as RedirectRequest);
-      } else {
-        this.authService.loginRedirect();
-      }
-
+    if (this.msalGuardConfig.authRequest) {
+      this.authService.loginRedirect({ ...this.msalGuardConfig.authRequest } as RedirectRequest);
+    } else {
+      this.authService.loginRedirect();
+    }
   }
 
+  // Log the user out
   logout() {
-
-      this.authService.logoutRedirect({
-        postLogoutRedirectUri: "/",
-      });
- 
+    this.authService.logoutRedirect();
   }
 
   ngOnDestroy(): void {

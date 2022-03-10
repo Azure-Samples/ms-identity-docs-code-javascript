@@ -1,35 +1,44 @@
+// Required for Angular multi-browser support
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// Required for Angular
 import { NgModule } from '@angular/core';
 
+// Required modules and components for this application
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
+import { HomeComponent } from './home/home.component';
 
+// HTTP modules required by MSAL
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { IPublicClientApplication, PublicClientApplication, InteractionType, BrowserCacheLocation, LogLevel } from '@azure/msal-browser';
+
+// Required for MSAL
+import { IPublicClientApplication, PublicClientApplication, InteractionType, BrowserCacheLocation } from '@azure/msal-browser';
 import { MsalGuard, MsalInterceptor, MsalBroadcastService, MsalInterceptorConfiguration, MsalModule, MsalService, MSAL_GUARD_CONFIG, MSAL_INSTANCE, MSAL_INTERCEPTOR_CONFIG, MsalGuardConfiguration, MsalRedirectComponent } from '@azure/msal-angular';
 
-const isIE = window.navigator.userAgent.indexOf("MSIE ") > -1 || window.navigator.userAgent.indexOf("Trident/") > -1;
+const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
 
 export function MSALInstanceFactory(): IPublicClientApplication {
   return new PublicClientApplication({
     auth: {
-	// 'Application (client) ID' of app registration in Azure portal - this value is a GUID
-        clientId: '',
+      // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
+      clientId: 'c085fc22-2484-41c0-b795-2e940f51df64',
+    
+      // Full directory URL, in the form of https://login.microsoftonline.com/<tenant>
+      authority: 'https://login.microsoftonline.com/332b3d1d-3231-4ec6-b306-18f563ad0743',
 
-	// Full directory URL, in the form of https://login.microsoftonline.com/<tenant>
-        authority: '',
-        redirectUri: '/'
+      // Must be the same redirectUri as what was provided in your AD app registration.
+      redirectUri: '/'
     },
     cache: {
       cacheLocation: BrowserCacheLocation.LocalStorage,
-      storeAuthStateInCookie: isIE, // set to true for IE 11
+      storeAuthStateInCookie: isIE,
     }
   });
 }
 
+// MSAL Interceptor is required to request access tokens in order to access the protected resource (Graph)
 export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
   const protectedResourceMap = new Map<string, Array<string>>();
   protectedResourceMap.set('https://graph.microsoft.com/v1.0/me', ['user.read']);
@@ -40,6 +49,7 @@ export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
   };
 }
 
+// MSAL Guard is required to protect routes and require authentication before accessing protected routes
 export function MSALGuardConfigFactory(): MsalGuardConfiguration {
   return { 
     interactionType: InteractionType.Redirect,
@@ -49,6 +59,7 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
   };
 }
 
+// Create an NgModule that contains the routes and MSAL configurations
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +68,6 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     MsalModule
