@@ -1,4 +1,7 @@
+// Required for Angular
 import { Component, OnInit } from '@angular/core';
+
+// Required for the HTTP GET request to Graph
 import { HttpClient } from '@angular/common/http';
 
 type ProfileType = {
@@ -6,7 +9,7 @@ type ProfileType = {
   displayName?: string,
   givenName?: string,
   jobTitle?: string,
-  mail?:string,
+  mail?: string,
   mobilePhone?: string,
   officeLocation?: string,
   preferredLanguage?: string,
@@ -26,6 +29,7 @@ export class ProfileComponent implements OnInit {
     private http: HttpClient
   ) { }
 
+  // When the page loads, perform an HTTP GET request from the Graph /me endpoint
   ngOnInit() {
     this.http.get('https://graph.microsoft.com/v1.0/me')
       .subscribe(profile => {
