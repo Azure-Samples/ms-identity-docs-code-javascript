@@ -69,7 +69,7 @@ npm -i
 ## Run the application
 
 ```console
-ng serve
+ng serve --open
 ```
 
 Follow the instructions that are presented on the web browser. If everything worked, you should receive a response similar to this on the "View Profile" page:
