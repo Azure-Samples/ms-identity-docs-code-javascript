@@ -21,7 +21,7 @@ urlFragment: ms-identity-docs-code-app-device-code-powershell
 ![Build passing.](https://img.shields.io/badge/build-passing-brightgreen.svg) ![Code coverage.](https://img.shields.io/badge/coverage-100%25-brightgreen.svg) ![License.](https://img.shields.io/badge/license-MIT-green.svg)
 -->
 
-This Angular single-page application authenticates a user via MSAL, and then makes a request to the Graph API as the authenticated user. The response to the request is displayed in the web browser.
+This Angular application uses the Angular MSAL v2 library to authenticate a user and then makes a request to the Graph API as the authenticated user. The response to the request is displayed in the web browser.
 
 ![Screenshot with profile information from Graph](profile.png?raw=true)
 
@@ -63,7 +63,7 @@ Use these settings in your app registration.
 To install required packages:
 
 ```console
-npm -i
+npm install
 ```
 
 ## Run the application
@@ -78,7 +78,11 @@ Follow the instructions that are presented on the web browser. If everything wor
 
 ## About the code
 
-Work-In-Progress :-)
+This Angular application uses the Angular MSAL v2 library to authenticate a user and then makes a request to the Graph API as the authenticated user.
+- MSALGuard is used to protect routes
+- MSALBroadcastService is used to consume events emitted by MSAL
+- MSALInterceptor is provided by MSAL Angular to automatically acquire tokens for protected resources
+- HttpClient is used to perform an HTTP GET request against Graph with the user's token
 
 ## Reporting problems
 
