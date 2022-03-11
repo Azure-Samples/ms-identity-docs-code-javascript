@@ -5,8 +5,8 @@
 languages:
 - Javascript
 page_type: sample
-name: "Angular Single Page Application (SPA) that accesses Microsoft Graph"
-description: "This Angular Single Page Application (SPA) accesses a protected route and makes a call to the Graph the API as the user."
+name: "Angular Single Page Application (SPA) that accesses Graph"
+description: "This Angular Single Page Application (SPA) accesses a protected route and makes a call to the Graph API as the user."
 products:
 - azure
 - azure-active-directory
