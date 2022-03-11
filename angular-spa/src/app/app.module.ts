@@ -29,7 +29,7 @@ export function MSALInstanceFactory(): IPublicClientApplication {
       authority: '',
 
       // Must be the same redirectUri as what was provided in your AD app registration.
-      redirectUri: '/'
+      redirectUri: ''
     },
     cache: {
       cacheLocation: BrowserCacheLocation.LocalStorage,
