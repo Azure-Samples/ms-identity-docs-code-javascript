@@ -51,11 +51,11 @@ Use these settings in your app registration.
 ### 2. Update code sample in _app.module.ts_ with app registration values
 
 ```javascript
-      // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
-      clientId: '',
-    
-      // Full directory URL, in the form of https://login.microsoftonline.com/<tenant>
-      authority: '',
+// 'Application (client) ID' of app registration in Azure portal - this value is a GUID
+clientId: '',
+
+// Full directory URL, in the form of https://login.microsoftonline.com/<tenant>
+authority: ''
 ```
 
 ### 3. Install package(s)
