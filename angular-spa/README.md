@@ -3,15 +3,15 @@
 # Metadata required by https://docs.microsoft.com/samples/browse/
 # Metadata properties: https://review.docs.microsoft.com/help/contribute/samples/process/onboarding?branch=main#add-metadata-to-readme
 languages:
-- PowerShell
+- Javascript
 page_type: sample
-name: "PowerShell console application that makes a request to the Graph API via the Device Code flow"
-description: "This PowerShell console application uses the device code flow for authentication and then makes a request to Microsoft Graph for the user's profile data."
+name: "Angular Single Page Application (SPA) that accesses Microsoft Graph"
+description: "This Angular Single Page Application (SPA) accesses a protected route and makes a call to the Graph the API as the user."
 products:
 - azure
 - azure-active-directory
 - ms-graph
-urlFragment: ms-identity-docs-code-app-device-code-powershell
+urlFragment: ms-identity-docs-javascript-angular-spa
 ---
 -->
 
@@ -52,10 +52,13 @@ Use these settings in your app registration.
 
 ```javascript
 // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
-clientId: '',
+clientId: ''
 
 // Full directory URL, in the form of https://login.microsoftonline.com/<tenant>
 authority: ''
+
+// Must be the same redirectUri as what was provided in your AD app registration.
+redirectUri: ''
 ```
 
 ### 3. Install package(s)
