@@ -55,7 +55,7 @@ Use these settings in your app registration.
 clientId: ''
 
 // Full directory URL, in the form of https://login.microsoftonline.com/<tenant>
-authority: ''
+authority: '',
 
 // Must be the same redirectUri as what was provided in your AD app registration.
 redirectUri: ''
