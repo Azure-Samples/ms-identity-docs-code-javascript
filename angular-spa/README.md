@@ -52,7 +52,7 @@ Use these settings in your app registration.
 
 ```javascript
 // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
-clientId: ''
+clientId: '',
 
 // Full directory URL, in the form of https://login.microsoftonline.com/<tenant>
 authority: '',
