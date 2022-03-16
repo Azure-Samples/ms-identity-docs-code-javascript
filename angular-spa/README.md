@@ -14,7 +14,7 @@ products:
 urlFragment: ms-identity-docs-javascript-angular-spa
 ---
 -->
-
+<!-- SAMPLE ID: DOCS-CODE-022 -->
 # Angular | web | user sign-in, protected web API access (Microsoft Graph) | Microsoft identity platform
 
 <!-- Build badges here
