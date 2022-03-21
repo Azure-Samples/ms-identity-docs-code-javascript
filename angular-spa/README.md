@@ -23,7 +23,7 @@ urlFragment: ms-identity-docs-javascript-angular-spa
 
 This Angular application uses the Angular MSAL v2 library to authenticate a user and then makes a request to the Graph API as the authenticated user. The response to the request is displayed in the web browser.
 
-![Screenshot with profile information from Graph](profile.png?raw=true)
+![Screenshot with profile information from Graph](./profile.png)
 
 ## Prerequisites
 
