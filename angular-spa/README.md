@@ -85,7 +85,7 @@ This Angular application uses the Angular MSAL v2 library to authenticate a user
 - MSALGuard is used to protect routes
 - MSALBroadcastService is used to consume events emitted by MSAL
 - MSALInterceptor is provided by MSAL Angular to automatically acquire tokens for protected resources
-- HttpClient is used to perform an HTTP GET request against Graph with the user's token
+- HttpClient is used to issue an HTTP GET request to Microsoft Graph with user's access token.
 
 ## Reporting problems
 
