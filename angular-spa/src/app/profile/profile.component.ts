@@ -24,6 +24,7 @@ type ProfileType = {
 })
 export class ProfileComponent implements OnInit {
   profile!: ProfileType;
+  tokenExpiration!: string;
 
   constructor(
     private http: HttpClient
@@ -35,5 +36,7 @@ export class ProfileComponent implements OnInit {
       .subscribe(profile => {
         this.profile = profile;
       });
+
+    this.tokenExpiration = localStorage.getItem('tokenExpiration')!;
   }
 }
