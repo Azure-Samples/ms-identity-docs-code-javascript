@@ -36,8 +36,8 @@ export class AppComponent implements OnInit, OnDestroy {
         this.setLoginDisplay();
       });
 
-      // Used for displaying token expiration
-      this.msalBroadcastService.msalSubject$.pipe(filter((msg: EventMessage) => msg.eventType === EventType.LOGIN_SUCCESS)).subscribe(msg => {
+      // Used for storing and displaying token expiration
+      this.msalBroadcastService.msalSubject$.pipe(filter((msg: EventMessage) => msg.eventType === EventType.ACQUIRE_TOKEN_SUCCESS)).subscribe(msg => {
       this.tokenExpiration=  (msg.payload as any).expiresOn;
       localStorage.setItem('tokenExpiration', this.tokenExpiration);
     });
