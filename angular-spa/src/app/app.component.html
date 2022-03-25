@@ -1,0 +1,7 @@
+<a href="/">Home</a> |
+<a [routerLink]="['profile']">View Profile</a> |
+<button *ngIf="!loginDisplay" (click)="login()">Login</button>
+<button *ngIf="loginDisplay" (click)="logout()">Logout</button>
+<div class="container">
+	<router-outlet></router-outlet>
+</div>
