@@ -15,6 +15,7 @@ urlFragment: ms-identity-docs-code-api-obo-nodejs
 ---
 -->
 
+<!-- SAMPLE ID: DOCS-CODE-015-->
 # Node.js | web API | user sign-in, access control (protected routes), protected web API access (Microsoft Graph) | Microsoft identity platform
 
 <!-- Build badges here
