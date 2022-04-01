@@ -50,7 +50,7 @@ app.get('/api/application', (req, res) => {
 
     // MSAL Node uses an in-memory token cache by default
     // Repeated HTTP GET requests will utilize the cached token until it nears expiration, at which point a new access token will be requested.
-    console.log(`\n\nToken: ${response.accessToken}`)
+    console.log(`\nAccess token from cache?: ${response.fromCache}`)
 
     // Perform an HTTP GET request against the Graph endpoint with the access token as authorization
     https.get('https://graph.microsoft.com/v1.0/applications/' + msalConfig.auth.clientObjectId, options, (graphResponse) => {
