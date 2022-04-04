@@ -61,7 +61,8 @@ app.get('/me', jwtAuthz(['user_impersonation'], { customScopeKey: 'scp' }), (req
     scopes: ['user.read']
   }
 
-  // Send the user's access token to Graph, to receive an access token for Graph on-behalf-of the user
+  // Obtain an access token for Graph on-behalf-of the user.
+  // This access token comes from MSAL Node which maintains an in-memory token cache by default.
   msalConfidentialClientApp.acquireTokenOnBehalfOf(oboRequest).then((response) => {
     const options = {
       headers: { Authorization: `Bearer ${response.accessToken}` }
