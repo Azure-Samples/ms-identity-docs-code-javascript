@@ -68,6 +68,13 @@ To install required packages:
 npm install
 ```
 
+## Run the application
+
+```console
+npm start
+```
+
+
 ## About the code
 
 This React Single-page application uses the Microsoft Authentication Library (MSAL) for React library to authenticate a user and then makes a request to the Microsoft Graph API as the authenticated user to retrieve their user profile data.
