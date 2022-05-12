@@ -14,7 +14,7 @@ products:
 urlFragment: ms-identity-docs-javascript-angular-spa
 ---
 -->
-<!-- SAMPLE ID: DOCS-CODE-022 -->
+<!-- SAMPLE ID: DOCS-CODE-023 -->
 # React | web | user sign-in, protected web API access (Microsoft Graph) | Microsoft identity platform
 
 <!-- Build badges here
@@ -22,6 +22,8 @@ urlFragment: ms-identity-docs-javascript-angular-spa
 -->
 
 This React application uses the React MSAL v2 library to authenticate a user and then makes a request to the Graph API as the authenticated user. The response to the request is displayed in the web browser.
+
+![Screenshot with profile information from Graph](./profile.png)
 
 ## Prerequisites
 
