@@ -5,13 +5,13 @@
 languages:
 - Javascript
 page_type: sample
-name: "Angular Single Page Application (SPA) that accesses Graph"
-description: "This Angular Single Page Application (SPA) accesses a protected route and makes a call to the Graph API as the user."
+name: "React Single Page Application (SPA) that accesses Graph"
+description: "This React Single Page Application (SPA) accesses a protected route and makes a call to the Graph API as the user."
 products:
 - azure
 - azure-active-directory
 - ms-graph
-urlFragment: ms-identity-docs-javascript-angular-spa
+urlFragment: ms-identity-docs-javascript-React-spa
 ---
 -->
 <!-- SAMPLE ID: DOCS-CODE-023 -->
