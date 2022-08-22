@@ -1,101 +1,31 @@
-<!-- Keeping yaml frontmatter commented out for now
----
-# Metadata required by https://docs.microsoft.com/samples/browse/
-# Metadata properties: https://review.docs.microsoft.com/help/contribute/samples/process/onboarding?branch=main#add-metadata-to-readme
-languages:
-- Javascript
-page_type: sample
-name: "React Single Page Application (SPA) that accesses Graph"
-description: "This React Single Page Application (SPA) accesses a protected route and makes a call to the Graph API as the user."
-products:
-- azure
-- azure-active-directory
-- ms-graph
-urlFragment: ms-identity-docs-javascript-React-spa
----
--->
-<!-- SAMPLE ID: DOCS-CODE-023 -->
-# React | web | user sign-in, protected web API access (Microsoft Graph) | Microsoft identity platform
+# React single-page app (SPA) | Sign in users, call protected API | Microsoft identity platform
 
-<!-- Build badges here
-![Build passing.](https://img.shields.io/badge/build-passing-brightgreen.svg) ![Code coverage.](https://img.shields.io/badge/coverage-100%25-brightgreen.svg) ![License.](https://img.shields.io/badge/license-MIT-green.svg)
--->
+This minimal React application demonstrates usage of the Microsoft Authentication Library for React (MSAL React) to:
 
-This React application uses the React MSAL v2 library to authenticate a user and then makes a request to the Graph API as the authenticated user. The response to the request is displayed in the web browser.
+- Sign in Azure AD users (authentication)
+- Call a protected web API (authorization)
+- Sign out users
 
-![Screenshot with profile information from Graph](./profile.png)
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Prerequisites
+## Available scripts
 
-- Azure Active Directory (Azure AD) tenant and the permissions or role required for managing app registrations in the tenant.
-- Node.js 16+
+In the project directory, you can run:
 
-## Setup
+### `npm start`
 
-### 1. Register the app
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-First, complete the steps in [Register an application with the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app) to register the application.
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-Use these settings in your app registration.
+### `npm run build`
 
-| App registration <br/> setting | Value for this sample app                                          | Notes                                                                           |
-| -----------------------------: | :----------------------------------------------------------------- | :------------------------------------------------------------------------------ |
-|                       **Name** | `react-spa`                                                        | Suggested value for this sample. <br/> You can change the app name at any time. |
-|    **Supported account types** | **Accounts in this organizational directory only (Single tenant)** | Suggested value for this sample.                                                |
-|              **Platform type** | Single-Page Application                                            | Required value for this sample.                                                 |
-|               **Redirect URI** | `http://localhost:3000/`                                           | Required value for this sample.                                                 |
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-> :information_source: **Bold text** in the tables above matches (or is similar to) a UI element in the Azure portal, while `code formatting` indicates a value you enter into a text box in the Azure portal.
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-### 2. Update code sample in _index.js_ with app registration values
-
-```javascript
-// 'Application (client) ID' of app registration in Azure portal - this value is a GUID
-clientId: '',
-
-// Full directory URL, in the form of https://login.microsoftonline.com/<tenant>
-authority: '',
-
-// Must be the same redirectUri as what was provided in your AD app registration.
-redirectUri: ''
-```
-
-### 3. Install package(s)
-
-To install required packages:
-
-```console
-npm install
-```
-
-## Run the application
-
-```console
-npm start
-```
-
-
-## About the code
-
-This React Single-page application uses the Microsoft Authentication Library (MSAL) for React library to authenticate a user and then makes a request to the Microsoft Graph API as the authenticated user to retrieve their user profile data.
-
-## Reporting problems
-
-### Sample app not working?
-
-If you can't get the sample working, you've checked [Stack Overflow](http://stackoverflow.com/questions/tagged/msal), and you've already searched the issues in this sample's repository, open an issue report the problem.
-
-1. Search the [GitHub issues](../../issues) in the repository - your problem might already have been reported or have an answer.
-1. Nothing similar? [Open an issue](../../issues/new) that clearly explains the problem you're having running the sample app.
-
-### All other issues
-
-> :warning: WARNING: Any issue in this repository _not_ limited to running one of its sample apps will be closed without being addressed.
-
-For all other requests, see [Support and help options for developers | Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options).
-
-## Contributing
-
-If you'd like to contribute to this sample, see [CONTRIBUTING.MD](/CONTRIBUTING.md).
-
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
