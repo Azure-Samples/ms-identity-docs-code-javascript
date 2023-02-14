@@ -1,3 +1,5 @@
+// <ms_doc_ref_signin_button>
+
 import React from "react";
 import { useMsal } from "@azure/msal-react";
 import { loginRequest } from "../authConfig";
@@ -28,3 +30,5 @@ export const SignInButton = () => {
         </DropdownButton>
     )
 }
+
+// </ms_doc_ref_signin_button>
