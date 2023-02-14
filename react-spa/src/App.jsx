@@ -19,7 +19,11 @@ import { AuthenticatedTemplate, UnauthenticatedTemplate, useMsal } from '@azure/
 
 // </ms_doc_ref_auth_from_msal_react>
 
+// <ms_doc_ref_import_css>
+
 import './styles/App.css';
+
+// </ms_doc_ref_import_css>
 
 
 // <ms_doc_ref_import_bootstrap_button>
