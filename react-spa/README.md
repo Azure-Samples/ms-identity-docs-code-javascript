@@ -3,8 +3,9 @@ page_type: sample
 languages:
 - javascript
 products:
+- azure
 - azure-active-directory
-- identity
+- ms-graph
 name: 
 - React-single-page-app
 description: "This minimal React application demonstrates usage of the Microsoft Authentication Library for React (MSAL React) to: Sign in Azure AD users (authentication) Call a protected web API (authorization) Sign out users"
@@ -23,7 +24,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available scripts
 
 In the project directory, you can run:
-
+ 
 ### `npm start`
 
 Runs the app in the development mode.\
