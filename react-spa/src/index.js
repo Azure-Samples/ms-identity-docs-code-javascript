@@ -11,7 +11,9 @@ import { msalConfig } from './authConfig';
 // Bootstrap components
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// </ms_docref_configure_msal>
+// </ms_docref_import_modules>
+
+// <ms_docref_configure_msal>
 const msalInstance = new PublicClientApplication(msalConfig);
 // </ms_docref_configure_msal>
 
