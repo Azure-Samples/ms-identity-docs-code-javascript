@@ -21,7 +21,7 @@ import { AuthenticatedTemplate, UnauthenticatedTemplate, useMsal } from '@azure/
 
 // <ms_doc_ref_import_css>
 
-import './styles/App.css';
+import './App.css';
 
 // </ms_doc_ref_import_css>
 
@@ -35,6 +35,7 @@ import Button from 'react-bootstrap/Button';
 
 
 // <ms_doc_ref_profile_content>
+
 
 /**
  * Renders information about the signed-in user or a button to retrieve data about the user
