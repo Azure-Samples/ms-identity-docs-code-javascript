@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
-import './styles/App.css';
+import './App.css';
+import React from "react";
+import useState from "react";
+
 import { PageLayout } from './components/PageLayout';
-import { AuthenticatedTemplate, UnauthenticatedTemplate, useMsal } from '@azure/msal-react';
-import Button from 'react-bootstrap/Button';
 import { loginRequest } from './authConfig';
 import { callMsGraph } from './graph';
-
 import { ProfileData } from './components/ProfileData';
+
+import { AuthenticatedTemplate, UnauthenticatedTemplate, useMsal } from '@azure/msal-react';
+
+import Button from 'react-bootstrap/Button';
 
 
 /**
