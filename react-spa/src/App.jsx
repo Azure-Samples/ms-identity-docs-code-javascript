@@ -1,41 +1,13 @@
-// <ms_doc_ref_import_useState>
-
 import React, { useState } from 'react';
-
-// </ms_doc_ref_import_useState>
-
-// <ms_doc_ref_import_custom_component>
 
 import { PageLayout } from './components/PageLayout';
 import { loginRequest } from './authConfig';
 import { callMsGraph } from './graph';
 import { ProfileData } from './components/ProfileData';
 
-// </ms_doc_ref_import_custom_component>
-
-// <ms_doc_ref_auth_from_msal_react>
-
 import { AuthenticatedTemplate, UnauthenticatedTemplate, useMsal } from '@azure/msal-react';
-
-// </ms_doc_ref_auth_from_msal_react>
-
-// <ms_doc_ref_import_css>
-
 import './App.css';
-
-// </ms_doc_ref_import_css>
-
-
-// <ms_doc_ref_import_bootstrap_button>
-
 import Button from 'react-bootstrap/Button';
-
-// </ms_doc_ref_import_bootstrap_button>
-
-
-
-// <ms_doc_ref_profile_content>
-
 
 /**
  * Renders information about the signed-in user or a button to retrieve data about the user
@@ -71,11 +43,6 @@ const ProfileContent = () => {
     );
 };
 
-// </ms_doc_ref_profile_content>
-
-
-// <ms_doc_ref_check_user_authentication>
-
 /**
  * If a user is authenticated the ProfileContent component above is rendered. Otherwise a message indicating a user is not authenticated is rendered.
  */
@@ -100,4 +67,3 @@ export default function App() {
         </PageLayout>
     );
 }
-// </ms_doc_ref_check_user_authentication>

@@ -1,5 +1,3 @@
-// <ms_doc_ref_page_profile_data>
-
 import React from "react";
 
 /**
@@ -16,4 +14,3 @@ export const ProfileData = (props) => {
         </div>
     );
 };
-// </ms_doc_ref_page_profile_data>

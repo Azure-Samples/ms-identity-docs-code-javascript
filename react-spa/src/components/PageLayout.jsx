@@ -3,7 +3,6 @@
  * Licensed under the MIT License.
  */
 
-// <ms_doc_ref_page_layout>
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 
@@ -39,4 +38,3 @@ export const PageLayout = (props) => {
         </>
     );
 };
-// </ms_doc_ref_page_layout>
