@@ -1,4 +1,3 @@
-// <ms_doc_ref_signout_button>
 import React from "react";
 import { useMsal } from "@azure/msal-react";
 import DropdownButton from "react-bootstrap/DropdownButton";
@@ -31,4 +30,3 @@ export const SignOutButton = () => {
         </DropdownButton>
     )
 }
-// </ms_doc_ref_signout_button>
