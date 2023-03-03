@@ -3,11 +3,8 @@
  * Licensed under the MIT License.
  */
 
-// <ms_doc_ref_import_msal_browser>
 import { LogLevel } from "@azure/msal-browser";
-// </ms_doc_ref_import_msal_browser>
 
-// <ms_doc_ref_configuration_object>
 /**
  * Configuration object to be passed to MSAL instance on creation. 
  * For a full list of MSAL.js configuration parameters, visit:
@@ -51,10 +48,6 @@ export const msalConfig = {
     }
 };
 
-// </ms_doc_ref_configuration_object>
-
-// <ms_doc_ref_graph_scope>
-
 /**
  * Scopes you add here will be prompted for user consent during sign-in.
  * By default, MSAL.js will add OIDC scopes (openid, profile, email) to any login request.
@@ -72,4 +65,3 @@ export const loginRequest = {
 export const graphConfig = {
     graphMeEndpoint: "https://graph.microsoft.com/v1.0/me",
 };
-// </ms_doc_ref_graph_scope>
