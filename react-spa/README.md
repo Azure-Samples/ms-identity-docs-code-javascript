@@ -6,8 +6,8 @@ products:
 - azure
 - azure-active-directory
 - ms-graph
-name: 
-- React-single-page-app
+name: MSAL React single-page app (SPA)
+url-fragment: msal-react-single-page-app
 description: This minimal React application demonstrates usage of the Microsoft Authentication Library for React (MSAL React) to sign in Azure AD users (authentication), call a protected web API (authorization), and sign out users.
 ---
 
