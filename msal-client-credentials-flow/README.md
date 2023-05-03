@@ -2,7 +2,7 @@
 # Metadata required by https://docs.microsoft.com/samples/browse/
 # Metadata properties: https://review.docs.microsoft.com/help/contribute/samples/process/onboarding?branch=main#add-metadata-to-readme
 languages:
-- Node.js
+- nodejs
 page_type: sample
 name: Node.js API that makes a request to the Graph API as itself
 description: This sample Node.js API demonstrates how to issue a call to a protected API using the client credentials flow.  A request will be issued to Microsoft Graph using the application's own identity.
