@@ -10,7 +10,7 @@ products:
 - azure
 - azure-active-directory
 - ms-graph
-urlFragment: ms-identity-docs-code-webapi-nodejs
+urlFragment: ms-identity-docs-code-webapi-nodejs-client-credentials-flow
 ---
 
 # Node.js | Web API | Web API that accesses a protected web API (Microsoft Graph) | Microsoft identity platform
