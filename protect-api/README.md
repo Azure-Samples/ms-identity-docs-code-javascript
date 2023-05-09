@@ -1,18 +1,16 @@
-<!-- Keeping yaml frontmatter commented out for now
 ---
 # Metadata required by https://docs.microsoft.com/samples/browse/
 # Metadata properties: https://review.docs.microsoft.com/help/contribute/samples/process/onboarding?branch=main#add-metadata-to-readme
 languages:
 - Node.js
 page_type: sample
-name: "Node.js application that protects its endpoint"
+name: Node.js application that protects its endpoint
 description: "This Node.js API protects its own protected endpoint using JWT scope validation."
 products:
 - azure
 - azure-active-directory
-urlFragment: ms-identity-docs-code-api-nodejs
+urlFragment: ms-identity-docs-code-web-api-nodejs
 ---
--->
 
 # Node.js | web API | access control (protected routes) | Microsoft identity platform
 
