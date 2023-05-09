@@ -1,19 +1,16 @@
-<!-- TO PUBLISH TO DOCS SAMPLES BROWSER: UPDATE AND THEN UNCOMMENT THE YAML FRONT-MATTER SECTION BELOW -->
-<!--
-# Metadata required by https://docs.microsoft.com/samples/browse/
-# Metadata properties: https://review.docs.microsoft.com/help/contribute/samples/process/onboarding?branch=main#add-metadata-to-readme
+---
+page_type: sample
 languages:
 - Node.js
-page_type: sample
-name: "Node.js Azure Function that protects an HTTP trigger function with Easy Auth and access token scope validation."
-description: "This Node.js Azure Function protects its own HTTP Trigger function with Easy Auth and access token scope validation. The code in this sample is used by one or more articles on docs.microsoft.com."
+name: Node.js Azure Function protecting HTTP trigger function with Easy Auth and access token scope validation.
+description: This Node.js Azure Function protects its own HTTP Trigger function with Easy Auth and access token scope validation. The code in this sample is used by one or more articles on docs.microsoft.com.
+urlFragment: ms-identity-docs-code-functions-nodejs
 products:
 - azure
 - azure-active-directory
 - azure-functions
-urlFragment: ms-identity-docs-code-functions-nodejs
 ---
--->
+
 # Node.js | Azure Function | protect an API | Microsoft identity platform
 
 <!-- Build badges here

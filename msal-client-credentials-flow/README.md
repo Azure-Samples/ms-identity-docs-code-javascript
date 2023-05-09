@@ -1,21 +1,18 @@
-<!-- Keeping yaml frontmatter commented out for now
 ---
 # Metadata required by https://docs.microsoft.com/samples/browse/
 # Metadata properties: https://review.docs.microsoft.com/help/contribute/samples/process/onboarding?branch=main#add-metadata-to-readme
 languages:
-- Node.js
+- nodejs
 page_type: sample
-name: "Node.js API that makes a request to the Graph API as itself"
-description: "This sample Node.js API demonstrates how to issue a call to a protected API using the client credentials flow.  A request will be issued to Microsoft Graph using the application's own identity."
+name: Node.js API that makes a request to the Graph API as itself
+description: This sample Node.js API demonstrates how to issue a call to a protected API using the client credentials flow.  A request will be issued to Microsoft Graph using the application's own identity.
 products:
 - azure
 - azure-active-directory
 - ms-graph
-urlFragment: ms-identity-docs-code-webapi-nodejs
+urlFragment: ms-identity-docs-code-webapi-nodejs-client-credentials-flow
 ---
--->
 
-<!-- SAMPLE ID: DOCS-CODE-009-->
 # Node.js | Web API | Web API that accesses a protected web API (Microsoft Graph) | Microsoft identity platform
 
 <!-- Build badges here
