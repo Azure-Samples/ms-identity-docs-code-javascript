@@ -2,7 +2,7 @@
 # Metadata required by https://docs.microsoft.com/samples/browse/
 # Metadata properties: https://review.docs.microsoft.com/help/contribute/samples/process/onboarding?branch=main#add-metadata-to-readme
 languages:
-- Node.js
+- nodejs
 page_type: sample
 name: Node.js application that protects its endpoint
 description: "This Node.js API protects its own protected endpoint using JWT scope validation."
