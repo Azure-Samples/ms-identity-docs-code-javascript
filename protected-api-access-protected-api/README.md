@@ -5,7 +5,7 @@ languages:
 - Node.js
 page_type: sample
 name: Node.js application that makes a request to the Graph API from a protected API on behalf of a user
-description: "This sample Node.js application shows a confidential client application which calls a protected API which make a request to Microsoft Graph using the on-behalf-of flow."
+description: This sample Node.js application shows a confidential client application which calls a protected API which make a request to Microsoft Graph using the on-behalf-of flow.
 products:
 - azure
 - azure-active-directory
