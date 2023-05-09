@@ -3,7 +3,7 @@ page_type: sample
 languages:
 - Node.js
 name: Node.js Azure Function protecting HTTP trigger function with Easy Auth and access token scope validation.
-description: "This Node.js Azure Function protects its own HTTP Trigger function with Easy Auth and access token scope validation. The code in this sample is used by one or more articles on docs.microsoft.com."
+description: This Node.js Azure Function protects its own HTTP Trigger function with Easy Auth and access token scope validation. The code in this sample is used by one or more articles on docs.microsoft.com.
 urlFragment: ms-identity-docs-code-functions-nodejs
 products:
 - azure
