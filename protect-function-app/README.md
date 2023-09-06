@@ -9,6 +9,7 @@ products:
 - azure
 - azure-active-directory
 - azure-functions
+- microsoft-identity-platform
 ---
 
 # Node.js | Azure Function | protect an API | Microsoft identity platform
