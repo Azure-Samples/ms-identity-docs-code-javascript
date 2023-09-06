@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import './styles/App.css';
+
 import { PageLayout } from './components/PageLayout';
-import { AuthenticatedTemplate, UnauthenticatedTemplate, useMsal } from '@azure/msal-react';
-import Button from 'react-bootstrap/Button';
 import { loginRequest } from './authConfig';
 import { callMsGraph } from './graph';
-
 import { ProfileData } from './components/ProfileData';
 
+import { AuthenticatedTemplate, UnauthenticatedTemplate, useMsal } from '@azure/msal-react';
+import './App.css';
+import Button from 'react-bootstrap/Button';
 
 /**
  * Renders information about the signed-in user or a button to retrieve data about the user
@@ -42,7 +42,6 @@ const ProfileContent = () => {
         </>
     );
 };
-
 
 /**
  * If a user is authenticated the ProfileContent component above is rendered. Otherwise a message indicating a user is not authenticated is rendered.
