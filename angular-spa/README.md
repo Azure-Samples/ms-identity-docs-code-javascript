@@ -1,18 +1,20 @@
+<!-- Keeping yaml frontmatter commented out for now
 ---
 # Metadata required by https://docs.microsoft.com/samples/browse/
 # Metadata properties: https://review.docs.microsoft.com/help/contribute/samples/process/onboarding?branch=main#add-metadata-to-readme
 languages:
 - Javascript
 page_type: sample
-name: Angular Single Page Application (SPA) that accesses Graph
-description: This Angular Single Page Application (SPA) accesses a protected route and makes a call to the Graph API as the user.
+name: "Angular Single Page Application (SPA) that accesses Graph"
+description: "This Angular Single Page Application (SPA) accesses a protected route and makes a call to the Graph API as the user."
 products:
 - azure
 - azure-active-directory
 - ms-graph
 urlFragment: ms-identity-docs-javascript-angular-spa
 ---
-
+-->
+<!-- SAMPLE ID: DOCS-CODE-022 -->
 # Angular | web | user sign-in, protected web API access (Microsoft Graph) | Microsoft identity platform
 
 <!-- Build badges here
@@ -75,7 +77,7 @@ ng serve --open
 
 Follow the instructions that are presented on the web browser. If everything worked, you should receive a response similar to this on the "View Profile" page:
 
-![Screenshot with profile information from Graph](./profile.png)
+![Screenshot with profile information from Graph](./readme-files/angular-spa-sign-in.png)
 
 ## About the code
 
