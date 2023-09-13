@@ -1,7 +1,13 @@
-<a href="/">Home</a> |
-<a [routerLink]="['profile']">View Profile</a> |
-<button *ngIf="!loginDisplay" (click)="login()">Login</button>
-<button *ngIf="loginDisplay" (click)="logout()">Logout</button>
+<a class="navbar navbar-dark bg-primary " variant="dark" href="/">
+	<a class="navbar-brand" > Microsoft Identity Platform </a>
+		<a>
+			<button *ngIf="!loginDisplay" class="btn btn-secondary" (click)="login()">Sign In</button>
+			<button *ngIf="loginDisplay" class="btn btn-secondary" (click)="logout()">Sign Out</button>
+		</a>
+</a>
+	<a class="profileButton">
+		<a [routerLink]="['profile']" class="btn btn-secondary" *ngIf="loginDisplay">View Profile</a> 
+	</a>
 <div class="container">
 	<router-outlet></router-outlet>
 </div>
