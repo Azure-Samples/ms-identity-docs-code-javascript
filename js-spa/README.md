@@ -1,21 +1,15 @@
 ---
 page_type: sample
-name: Vanilla JavaScript single-page application using MSAL.js to authenticate users with Azure Active Directory
-description: Vanilla JavaScript single-page application using MSAL.js to authenticate users with Azure Active Directory
 languages:
- - javascript
+- javascript
 products:
- - azure-active-directory
- - msal-js
- - msal-browser
- - microsoft-identity-platform
-urlFragment: ms-identity-javascript-tutorial
-extensions:
-- services: ms-identity
-- platform: JavaScript
-- endpoint: AAD v2.0
-- level: 100
-- client: Vanilla JavaScript SPA
+- azure
+- azure-active-directory
+- ms-graph
+- microsoft-identity-platform
+name: JavaScript single-page app (SPA) that signs in user
+url-fragment: msal-javascript-single-page-app
+description: This minimal JavaScript application demonstrates usage of the Microsoft Authentication Library for JavaScript (MSAL.js) to sign in Azure AD users (authentication), call a protected web API (authorization), and sign out users.
 ---
 
 # Vanilla JavaScript single-page application using MSAL.js to authenticate users with Azure Active Directory
