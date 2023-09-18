@@ -9,6 +9,7 @@ description: "This Node.js API protects its own protected endpoint using JWT sco
 products:
 - azure
 - azure-active-directory
+- microsoft-identity-platform
 urlFragment: ms-identity-docs-code-web-api-nodejs
 ---
 
