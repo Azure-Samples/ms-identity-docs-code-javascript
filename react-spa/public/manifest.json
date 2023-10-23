@@ -1,6 +1,6 @@
 {
-  "short_name": "Azure AD React App",
-  "name": "Azure AD React App",
+  "short_name": "Microsoft Entra React App",
+  "name": "Microsoft Entra React App",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
