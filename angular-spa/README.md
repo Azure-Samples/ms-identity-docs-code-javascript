@@ -27,7 +27,7 @@ This Angular application uses the Angular MSAL v2 library to authenticate a user
 
 ## Prerequisites
 
-- Azure Active Directory (Azure AD) tenant and the permissions or role required for managing app registrations in the tenant.
+- A Microsoft Entra tenant and the permissions or role required for managing app registrations in the tenant.
 - Node.js 16+
 - Angular 12
 
@@ -46,19 +46,19 @@ Use these settings in your app registration.
 | **Platform type**                 | Single-Page Application                                                      | Required value for this sample.                                                 |
 | **Redirect URI**                  | `http://localhost:4200`                                                      | Required value for this sample.                                                                    |
 
-> :information_source: **Bold text** in the tables above matches (or is similar to) a UI element in the Azure portal, while `code formatting` indicates a value you enter into a text box in the Azure portal.
+> :information_source: **Bold text** in the tables above matches (or is similar to) a UI element in the Microsoft Entra admin center, while `code formatting` indicates a value you enter into a text box in the Microsoft Entra admin center.
 
 ### 2. Update code sample in _app.module.ts_ with app registration values
 
 ```javascript
-// 'Application (client) ID' of app registration in Azure portal - this value is a GUID
-clientId: '',
-
+// 'Application (client) ID' of app registration in the Microsoft Entra admin center - this value is a GUID
+clientId: 'Enter_the_Application_Id_Here',
+    
 // Full directory URL, in the form of https://login.microsoftonline.com/<tenant>
-authority: '',
+authority: 'https://login.microsoftonline.com/Enter_the_Tenant_ID_Here',
 
-// Must be the same redirectUri as what was provided in your AD app registration.
-redirectUri: ''
+// Must be the same redirectUri as what was provided in your Microsoft Entra app registration.
+redirectUri: 'Enter_the_Redirect_URI_Here'
 ```
 
 ### 3. Install package(s)
