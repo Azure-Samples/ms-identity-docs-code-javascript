@@ -79,16 +79,16 @@ In [_app.js_](app.js), update the Microsoft Entra property values with those fro
 ```javascript
 auth: {
   // 'Application (client) ID' of app registration in the Microsoft Entra admin center - this value is a GUID
-    clientId: 'Enter_the_Application_Id_Here',
+  clientId: 'Enter_the_Application_Id_Here',
 
-    // Client secret 'Value' (not the ID) from 'Client secrets' in app registration in the Microsoft Entra admin center
-    clientSecret: 'Enter_the_Client_Secret_Value_Here',
+  // Client secret 'Value' (not the ID) from 'Client secrets' in app registration in the Microsoft Entra admin center
+  clientSecret: 'Enter_the_Client_Secret_Value_Here',
 
-    // Full directory URL, in the form of https://login.microsoftonline.com/<tenant>
-    authority: 'https://login.microsoftonline.com/Enter_the_Tenant_ID_Here',
+  // Full directory URL, in the form of https://login.microsoftonline.com/<tenant>
+  authority: 'https://login.microsoftonline.com/Enter_the_Tenant_ID_Here',
 
-    // 'Object ID' of app registration in the Microsoft Entra admin center - this value is a GUID
-    clientObjectId: 'Enter_the_Client_Object_ID_Here'
+  // 'Object ID' of app registration in the Microsoft Entra admin center - this value is a GUID
+  clientObjectId: 'Enter_the_Client_Object_ID_Here'
 }
 ```
 

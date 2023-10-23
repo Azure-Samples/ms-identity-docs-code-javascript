@@ -3,7 +3,7 @@ page_type: sample
 languages:
 - nodejs
 name: Node.js Azure Function protecting HTTP trigger function with Easy Auth and access token scope validation.
-description: This Node.js Azure Function protects its own HTTP Trigger function with Easy Auth and access token scope validation. The code in this sample is used by one or more articles on docs.microsoft.com.
+description: This Node.js Azure Function protects its own HTTP Trigger function with Easy Auth and access token scope validation. The code in this sample is used by one or more articles on learn.microsoft.com.
 urlFragment: ms-identity-docs-code-functions-nodejs
 products:
 - azure
@@ -25,19 +25,20 @@ $ curl https://<your-function>.azurewebsites.net/api/greeting -H "Authorization:
 Hello, world. You were able to access this because you provided a valid access token with the Greeting.Read scope as a claim.
 ```
 
-> :page_with_curl: This sample application backs one or more technical articles on docs.microsoft.com. <!-- TODO: Link to first tutorial in series when published. -->
+> :page_with_curl: This sample application backs one or more technical articles on learn.microsoft.com. <!-- TODO: Link to first tutorial in series when published. -->
+
 ## Prerequisites
 
-- Azure Active Directory (Azure AD) tenant and the permissions or role required for managing app registrations in the tenant.
+- A Microsoft Entra tenant and the permissions or role required for managing app registrations in the tenant.
 - Node.js 16
-- [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local)
-- An empty, [Node.js 16 Function App (v4) deployed to Azure](https://docs.microsoft.com/azure/azure-functions/create-first-function-cli-node) and the permissions or role required to modify its settings
+- [Azure Functions Core Tools](https://learn.microsoft.com/azure/azure-functions/functions-run-local)
+- An empty, [Node.js 16 Function App (v4) deployed to Azure](https://learn.microsoft.com/azure/azure-functions/create-first-function-cli-node) and the permissions or role required to modify its settings
 
 ## Setup
 
 ### 1. Register the app
 
-First, complete the steps in [Register an API application with the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-expose-web-apis#register-the-web-api) to register the sample app.
+First, complete the steps in [Register an API application with the Microsoft identity platform](https://learn.microsoft.com/azure/active-directory/develop/quickstart-configure-app-expose-web-apis#register-the-web-api) to register the sample app.
 
 Use these settings in your app registration.
 
@@ -51,7 +52,7 @@ Use these settings in your app registration.
 > :information_source: **Bold text** in the table matches (or is similar to) a UI element in the Azure portal, while `code formatting` indicates a value you enter into a text box in the Azure portal.
 ### 2. Enable Function app authentication
 
-Next, complete the steps in [Enable Azure Active Directory in your App Service app](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad?toc=/azure/azure-functions/toc.json#-enable-azure-active-directory-in-your-app-service-app) to add Azure Active Directory as an identity provider for your API.
+Next, complete the steps in [Enable Microsoft Entra ID in your App Service app](https://learn.microsoft.com/azure/app-service/configure-authentication-provider-aad?toc=/azure/azure-functions/toc.json#-enable-azure-active-directory-in-your-app-service-app) to add Microsoft Entra ID as an identity provider for your API.
 
 Use these settings in your identity provider configuration.
 
@@ -59,15 +60,15 @@ Use these settings in your identity provider configuration.
 |--------------------------------:|:--------------------------------------------------------|:---------------------------------------------------------------------------------|
 | **Identity provider**           | **Microsoft**                                           | Required value for this sample.                                                  |
 | **App registration type**       | **Provide the details of an existing app registration** | Required value for this sample.                                                  |
-| **Application (client) ID**     | `<client-id>`                                           | Required value for this sample. <br/> 'Application (client) ID' of the API's app registration in Azure portal - this value is a GUID     |
+| **Application (client) ID**     | `<client-id>`                                           | Required value for this sample. <br/> 'Application (client) ID' of the API's app registration in the Microsoft Entra admin center - this value is a GUID     |
 | **Client secret (recommended)** | _None_                                                  | Suggested value for this sample. <br/> This sample doesn't require this feature. |
-| **Issuer URL**                  | `https://login.microsoftonline.com/<tenant-id>/v2.0`    | Required value for this sample. <br/> Update to include 'Tenant ID' of your Azure AD instance - this value is a GUID                     |
-| **Allowed token audiences**     | `api://<client-id>`                                     | Required value for this sample. <br/> 'Application ID URI' of app registration in Azure portal - this value typically starts with api:// |
+| **Issuer URL**                  | `https://login.microsoftonline.com/<tenant-id>/v2.0`    | Required value for this sample. <br/> Update to include 'Tenant ID' of your Microsoft Entra instance - this value is a GUID                     |
+| **Allowed token audiences**     | `api://<client-id>`                                     | Required value for this sample. <br/> 'Application ID URI' of app registration in the Microsoft Entra admin center - this value typically starts with api:// |
 | **Restrict access**             | **Require authentication**                              | Required value for this sample.                                                  |
 | **Unauthenticated requests**    | **HTTP 401 Unauthorized: recommended for APIs**         | Suggested value for this sample.                                                 |
 | **Token store**                 | _Unselected_                                            | Suggested value for this sample.                                                 |
 
-> :information_source: **Bold text** in the table matches (or is similar to) a UI element in the Azure portal, while `code formatting` indicates a value you enter into a text box in the Azure portal.
+> :information_source: **Bold text** in the table matches (or is similar to) a UI element in the Microsoft Entra admin center, while `code formatting` indicates a value you enter into a text box in the Microsoft Entra admin center.
 
 ### 3. Deploy the Function app
 
@@ -88,7 +89,7 @@ Hello, world. You were able to access this because you provided a valid access t
 
 ## About the code
 
-This Azure Function is an anonymous HTTP trigger written in Node.js and uses the built-in [Authentication and authorization in Azure Functions](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) feature to offload fundamental JWT access token validation. Requests that make it through the built-in authentication feature of Azure Functions are then routed to the Node.js code, which uses the 'jsonwebtoken' module to decode the token for scope validation.
+This Azure Function is an anonymous HTTP trigger written in Node.js and uses the built-in [Authentication and authorization in Azure Functions](https://learn.microsoft.com/azure/app-service/overview-authentication-authorization) feature to offload fundamental JWT access token validation. Requests that make it through the built-in authentication feature of Azure Functions are then routed to the Node.js code, which uses the 'jsonwebtoken' module to decode the token for scope validation.
 
 - A missing or invalid (expired, wrong audience, etc) token will result in a `401` response. (Handled by Azure Functions authentication)
 - An otherwise valid token without the proper scope will result in a 403 response.
@@ -111,7 +112,7 @@ If you can't get the sample working, you've checked [Stack Overflow](https://sta
 
 > :warning: WARNING: Any issue in this repository _not_ limited to running one of its sample apps will be closed without being addressed.
 
-For all other requests, see [Support and help options for developers | Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options).
+For all other requests, see [Support and help options for developers | Microsoft identity platform](https://learn.microsoft.com/azure/active-directory/develop/developer-support-help-options).
 
 ## Contributing
 
