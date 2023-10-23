@@ -22,14 +22,12 @@ const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigato
 export function MSALInstanceFactory(): IPublicClientApplication {
   return new PublicClientApplication({
     auth: {
-      // 'Application (client) ID' of app registration in the Microsoft Entra admin center - this value is a GUID
-      clientId: 'Enter_the_Application_Id_Here',
-    
+      // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
+      clientId: "Enter_the_Application_Id_Here",
       // Full directory URL, in the form of https://login.microsoftonline.com/<tenant>
-      authority: 'https://login.microsoftonline.com/Enter_the_Tenant_ID_Here',
-
-      // Must be the same redirectUri as what was provided in your Microsoft Entra app registration.
-      redirectUri: 'Enter_the_Redirect_URI_Here'
+      authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
+      // Must be the same redirectUri as what was provided in your AD app registration.
+      redirectUri: "http://localhost:4200",
     },
     cache: {
       cacheLocation: BrowserCacheLocation.LocalStorage,

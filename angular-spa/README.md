@@ -11,6 +11,7 @@ products:
 - azure
 - azure-active-directory
 - ms-graph
+- microsoft-identity-platform
 urlFragment: ms-identity-docs-javascript-angular-spa
 ---
 -->
@@ -77,7 +78,7 @@ ng serve --open
 
 Follow the instructions that are presented on the web browser. If everything worked, you should receive a response similar to this on the "View Profile" page:
 
-![Screenshot with profile information from Graph](./profile.png)
+![Screenshot with profile information from Graph](./readme-files/angular-spa-sign-in.png)
 
 ## About the code
 
