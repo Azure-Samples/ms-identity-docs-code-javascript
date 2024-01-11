@@ -14,11 +14,11 @@ const jwtAuthz = require('express-jwt-authz')
 
 const config = {
   auth: {
-    // 'Directory (tenant) ID' of app registration in the Azure portal - this value is a GUID
-    tenant: '',
+    // 'Directory (tenant) ID' of app registration in the Microsoft Entra admin center - this value is a GUID
+    tenant: 'Enter_the_Tenant_ID_Here',
 
-    // 'Application (client) ID' of app registration in the Azure portal - this value is a GUID
-    audience: ''
+    // 'Application (client) ID' of app registration in the Microsoft Entra admin center - this value is a GUID
+    audience: 'Enter_the_Application_Id_Here'
   }
 }
 
