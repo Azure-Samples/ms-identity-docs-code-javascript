@@ -1,7 +1,7 @@
 <!-- Keeping yaml frontmatter commented out for now
 ---
-# Metadata required by https://docs.microsoft.com/samples/browse/
-# Metadata properties: https://review.docs.microsoft.com/help/contribute/samples/process/onboarding?branch=main#add-metadata-to-readme
+# Metadata required by https://learn.microsoft.com/samples/browse/
+# Metadata properties: https://review.learn.microsoft.com/help/contribute/samples/process/onboarding?branch=main#add-metadata-to-readme
 languages:
 - Javascript
 page_type: sample
@@ -11,6 +11,7 @@ products:
 - azure
 - azure-active-directory
 - ms-graph
+- microsoft-identity-platform
 urlFragment: ms-identity-docs-javascript-angular-spa
 ---
 -->
@@ -27,7 +28,7 @@ This Angular application uses the Angular MSAL v2 library to authenticate a user
 
 ## Prerequisites
 
-- Azure Active Directory (Azure AD) tenant and the permissions or role required for managing app registrations in the tenant.
+- A Microsoft Entra tenant and the permissions or role required for managing app registrations in the tenant.
 - Node.js 16+
 - Angular 12
 
@@ -35,7 +36,7 @@ This Angular application uses the Angular MSAL v2 library to authenticate a user
 
 ### 1. Register the app
 
-First, complete the steps in [Register an application with the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app) to register the application.
+First, complete the steps in [Register an application with the Microsoft identity platform](https://learn.microsoft.com/azure/active-directory/develop/quickstart-register-app) to register the application.
 
 Use these settings in your app registration.
 
@@ -46,19 +47,19 @@ Use these settings in your app registration.
 | **Platform type**                 | Single-Page Application                                                      | Required value for this sample.                                                 |
 | **Redirect URI**                  | `http://localhost:4200`                                                      | Required value for this sample.                                                                    |
 
-> :information_source: **Bold text** in the tables above matches (or is similar to) a UI element in the Azure portal, while `code formatting` indicates a value you enter into a text box in the Azure portal.
+> :information_source: **Bold text** in the tables above matches (or is similar to) a UI element in the Microsoft Entra admin center, while `code formatting` indicates a value you enter into a text box in the Microsoft Entra admin center.
 
 ### 2. Update code sample in _app.module.ts_ with app registration values
 
 ```javascript
-// 'Application (client) ID' of app registration in Azure portal - this value is a GUID
-clientId: '',
-
+// 'Application (client) ID' of app registration in the Microsoft Entra admin center - this value is a GUID
+clientId: 'Enter_the_Application_Id_Here',
+    
 // Full directory URL, in the form of https://login.microsoftonline.com/<tenant>
-authority: '',
+authority: 'https://login.microsoftonline.com/Enter_the_Tenant_ID_Here',
 
-// Must be the same redirectUri as what was provided in your AD app registration.
-redirectUri: ''
+// Must be the same redirectUri as what was provided in your Microsoft Entra app registration.
+redirectUri: 'Enter_the_Redirect_URI_Here'
 ```
 
 ### 3. Install package(s)
@@ -77,7 +78,7 @@ ng serve --open
 
 Follow the instructions that are presented on the web browser. If everything worked, you should receive a response similar to this on the "View Profile" page:
 
-![Screenshot with profile information from Graph](./profile.png)
+![Screenshot with profile information from Graph](./readme-files/angular-spa-sign-in.png)
 
 ## About the code
 
@@ -100,7 +101,7 @@ If you can't get the sample working, you've checked [Stack Overflow](http://stac
 
 > :warning: WARNING: Any issue in this repository _not_ limited to running one of its sample apps will be closed without being addressed.
 
-For all other requests, see [Support and help options for developers | Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options).
+For all other requests, see [Support and help options for developers | Microsoft identity platform](https://learn.microsoft.com/azure/active-directory/develop/developer-support-help-options).
 
 ## Contributing
 

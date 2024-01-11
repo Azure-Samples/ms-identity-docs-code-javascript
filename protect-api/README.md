@@ -1,18 +1,17 @@
-<!-- Keeping yaml frontmatter commented out for now
 ---
 # Metadata required by https://docs.microsoft.com/samples/browse/
 # Metadata properties: https://review.docs.microsoft.com/help/contribute/samples/process/onboarding?branch=main#add-metadata-to-readme
 languages:
-- Node.js
+- nodejs
 page_type: sample
-name: "Node.js application that protects its endpoint"
+name: Node.js application that protects its endpoint
 description: "This Node.js API protects its own protected endpoint using JWT scope validation."
 products:
 - azure
 - azure-active-directory
-urlFragment: ms-identity-docs-code-api-nodejs
+- microsoft-identity-platform
+urlFragment: ms-identity-docs-code-web-api-nodejs
 ---
--->
 
 # Node.js | web API | access control (protected routes) | Microsoft identity platform
 
@@ -29,7 +28,7 @@ Hello, world. You were able to access this because you provided a valid access t
 
 ## Prerequisites
 
-- Azure Active Directory (Azure AD) tenant and the permissions or role required for managing app registrations in the tenant.
+- A Microsoft Entra tenant and the permissions or role required for managing app registrations in the tenant.
 - Node.js 16+
 
 ## Setup
@@ -47,17 +46,17 @@ Use these settings in your app registration.
 | **Platform type**              | _None_                                                               | No redirect URI required; don't select a platform.                               |
 | **Scopes defined by this API** | **Scope name**: `Greeting.Read`<br/>**Who can consent?**: **Admins and users**<br/>**Admin consent display name**: `Read API Greetings`<br/>**Admin consent description**: `Allows the user to see greetings from the API.`<br/>**User consent display name**: `Read API Greetings`<br/>**User consent description**: `Allows you to see greetings from the API.`<br/>**State**: **Enabled** | Required scope for this sample. |
 
-> :information_source: **Bold text** in the tables above matches (or is similar to) a UI element in the Azure portal, while `code formatting` indicates a value you enter into a text box in the Azure portal.
+> :information_source: **Bold text** in the tables above matches (or is similar to) a UI element in the Microsoft Entra admin center, while `code formatting` indicates a value you enter into a text box in the Microsoft Entra admin center.
 
 ### 2. Update code sample with app registration values
 
 ```javascript
 auth: {
-  // 'Directory (tenant) ID' of app registration in the Azure portal - this value is a GUID
-  tenant: '',
+  // 'Directory (tenant) ID' of app registration in the Microsoft Entra admin center - this value is a GUID
+    tenant: 'Enter_the_Tenant_ID_Here',
 
-  // 'Application (client) ID' of app registration in the Azure portal - this value is a GUID
-  audience: ''
+    // 'Application (client) ID' of app registration in the Microsoft Entra admin center - this value is a GUID
+    audience: 'Enter_the_Application_Id_Here'
 }
 ```
 
