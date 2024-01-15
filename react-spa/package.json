@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
       "@azure/msal-browser": "^2.32.2",
-      "@azure/msal-common": "^9.1.1",
       "@azure/msal-react": "^1.5.2",
       "bootstrap": "^5.2.3",
       "react": "^18.2.0",
