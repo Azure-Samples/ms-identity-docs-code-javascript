@@ -20,12 +20,13 @@
     "@angular/router": "~12.2.0",
     "@azure/msal-angular": "^2.1.1",
     "@azure/msal-browser": "^2.22.0",
+    "bootstrap": "^5.3.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~12.2.16",
+    "@angular-devkit/build-angular": "~17.0.10",
     "@angular/cli": "~12.2.16",
     "@angular/compiler-cli": "~12.2.0",
     "@types/jasmine": "~3.8.0",

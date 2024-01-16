@@ -1,21 +1,19 @@
-<!-- Keeping yaml frontmatter commented out for now
 ---
-# Metadata required by https://docs.microsoft.com/samples/browse/
-# Metadata properties: https://review.docs.microsoft.com/help/contribute/samples/process/onboarding?branch=main#add-metadata-to-readme
+# Metadata required by https://learn.microsoft.com/samples/browse/
+# Metadata properties: https://review.learn.microsoft.com/help/contribute/samples/process/onboarding?branch=main#add-metadata-to-readme
 languages:
-- Node.js
+- nodejs
 page_type: sample
-name: "Node.js API that makes a request to the Graph API as itself"
-description: "This sample Node.js API demonstrates how to issue a call to a protected API using the client credentials flow.  A request will be issued to Microsoft Graph using the application's own identity."
+name: Node.js API that makes a request to the Graph API as itself
+description: This sample Node.js API demonstrates how to issue a call to a protected API using the client credentials flow.  A request will be issued to Microsoft Graph using the application's own identity.
 products:
 - azure
 - azure-active-directory
 - ms-graph
-urlFragment: ms-identity-docs-code-webapi-nodejs
+- microsoft-identity-platform
+urlFragment: ms-identity-docs-code-webapi-nodejs-client-credentials-flow
 ---
--->
 
-<!-- SAMPLE ID: DOCS-CODE-009-->
 # Node.js | Web API | Web API that accesses a protected web API (Microsoft Graph) | Microsoft identity platform
 
 <!-- Build badges here
@@ -54,14 +52,14 @@ $ curl http://localhost:8080/api/application
 ```
 ## Prerequisites
 
-- Azure Active Directory (Azure AD) tenant and the permissions or role required for managing app registrations in the tenant.
+- A Microsoft Entra tenant and the permissions or role required for managing app registrations in the tenant.
 - Node.js 16+
 
 ## Setup
 
 ### 1. Register the app
 
-First, complete the steps in [Quickstart: Register an application with the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app) to register the web API.
+First, complete the steps in [Quickstart: Register an application with the Microsoft identity platform](https://learn.microsoft.com/azure/active-directory/develop/quickstart-register-app) to register the web API.
 
 Use these settings in your app registration.
 
@@ -72,25 +70,25 @@ Use these settings in your app registration.
 | **Platform type**                 | _None_                                                                       | No redirect URI required; don't select a platform.                                                                    |
 | **Client secret**                 | _**Value** of the client secret (not its ID)_                                | :warning: Record this value immediately! <br/> It's shown only _once_ (when you create it).        |
 
-> :information_source: **Bold text** in the tables above matches (or is similar to) a UI element in the Azure portal, while `code formatting` indicates a value you enter into a text box in the Azure portal.
+> :information_source: **Bold text** in the tables above matches (or is similar to) a UI element in the Microsoft Entra admin center, while `code formatting` indicates a value you enter into a text box in the Microsoft Entra admin center.
 
 ### 2. Update code sample with app registration values
 
-In [_app.js_](app.js), update the Azure AD property values with those from your [app's registration in the Azure portal](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-expose-web-apis).
+In [_app.js_](app.js), update the Microsoft Entra property values with those from your [app's registration in the Microsoft Entra admin center](https://learn.microsoft.com/azure/active-directory/develop/quickstart-configure-app-expose-web-apis).
 
 ```javascript
 auth: {
-  // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
-  clientId: '',
+  // 'Application (client) ID' of app registration in the Microsoft Entra admin center - this value is a GUID
+  clientId: 'Enter_the_Application_Id_Here',
 
-  // Client secret 'Value' (not the ID) from 'Client secrets' in app registration in Azure portal
-  clientSecret: '',
+  // Client secret 'Value' (not the ID) from 'Client secrets' in app registration in the Microsoft Entra admin center
+  clientSecret: 'Enter_the_Client_Secret_Value_Here',
 
   // Full directory URL, in the form of https://login.microsoftonline.com/<tenant>
-  authority: '',
-  
-  // 'Object ID' of app registration in Azure portal - this value is a GUID
-  clientObjectId: ''
+  authority: 'https://login.microsoftonline.com/Enter_the_Tenant_ID_Here',
+
+  // 'Object ID' of app registration in the Microsoft Entra admin center - this value is a GUID
+  clientObjectId: 'Enter_the_Client_Object_ID_Here'
 }
 ```
 
@@ -162,7 +160,7 @@ If you can't get the sample working, you've checked [Stack Overflow](http://stac
 
 > :warning: WARNING: Any issue in this repository _not_ limited to running one of its sample apps will be closed without being addressed.
 
-For all other requests, see [Support and help options for developers | Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options).
+For all other requests, see [Support and help options for developers | Microsoft identity platform](https://learn.microsoft.com/azure/active-directory/develop/developer-support-help-options).
 
 ## Contributing
 
