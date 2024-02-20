@@ -19,9 +19,9 @@ function selectAccount () {
         // Add your account choosing logic here
         console.warn("Multiple accounts detected.");
     } else if (currentAccounts.length === 1) {
-        username = currentAccounts[0].username;
-        welcomeUser(username);
-        updateTable();
+        username = currentAccounts[0].username
+        welcomeUser(currentAccounts[0].username);
+        updateTable(currentAccounts[0]);
     }
 }
 
@@ -33,11 +33,10 @@ function handleResponse(response) {
      */
     
     if (response !== null) {
-        username = response.account.username;
+        username = response.account.username
         welcomeUser(username);
-        updateTable();
+        updateTable(response.account);
     } else {
-
         selectAccount();
 
         /**
@@ -47,11 +46,9 @@ function handleResponse(response) {
          */
 
         // myMSALObj.ssoSilent(silentRequest).
-        //     then(() => {
-        //         const currentAccounts = myMSALObj.getAllAccounts();
-        //         username = currentAccounts[0].username;
-        //         welcomeUser(username);
-        //         updateTable();
+        //     then((response) => {
+        //          welcomeUser(response.account.username);
+        //          updateTable(response.account);
         //     }).catch(error => {
         //         console.error("Silent Error: " + error);
         //         if (error instanceof msal.InteractionRequiredAuthError) {
@@ -85,8 +82,7 @@ function signOut() {
     // Choose which account to logout from by passing a username.
     const logoutRequest = {
         account: myMSALObj.getAccountByUsername(username),
-        mainWindowRedirectUri: 'http://localhost:3000/signout',
-        redirectUri: 'http://localhost:3000/redirect.html',
+        mainWindowRedirectUri: '/signout'
     };
 
     myMSALObj.logoutPopup(logoutRequest);
