@@ -15,7 +15,7 @@ description: This minimal JavaScript application demonstrates usage of the Micro
 # Vanilla JavaScript single-page application using MSAL.js to authenticate users with Microsoft Entra ID
 
 * [Overview](#overview)
-* [Scenario](#scenario)
+* [Usage](#usage)
 * [Contents](#contents)
 * [Prerequisites](#prerequisites)
 * [Setup the sample](#setup-the-sample)
@@ -28,25 +28,26 @@ description: This minimal JavaScript application demonstrates usage of the Micro
 
 ## Overview
 
-This sample demonstrates a Vanilla JavaScript single-page application (SPA) that lets users sign-in to [Microsoft Entra ID](https://learn.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) using the [Microsoft Authentication Library for JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js) (MSAL.js). In doing so, it also illustrates various authentication concepts, such as [ID Tokens](https://learn.microsoft.com/azure/active-directory/develop/id-tokens), [OIDC scopes](https://learn.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#openid-connect-scopes), [single-sign on](https://learn.microsoft.com/azure/active-directory/develop/msal-js-sso), **account selection**, **silent requests** and more.
+This sample demonstrates how to sign users into a sample Vanilla JavaScript single-page application (SPA) tby using Microsoft Entra ID. The sample utilizes the [Microsoft Authentication Library for JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js) (MSAL.js) to simplify adding authentication.
 
-## Scenario
+## Usage
 
-1. The client application uses **MSAL.js** to sign-in a user and obtain an **ID Token** from **Microsoft Entra ID**.
-2. The **ID Token** proves that the user has successfully signed-in with their organization's tenant.
-
-![Overview](./ReadmeFiles/topology_signin.png)
+| Instruction                  |                Description                  |
+|------------------------------|---------------------------------------------|
+| **Use case**                 | Authenticate users and call a protected web API. |
+| **Scenario**                 | Sign in users. You acquire an ID token by using authorization code flow with PKCE. |
+| **Add sign in to your app**  | Use the instructions in [Sign in users in a single-page app (SPA) and call the Microsoft Graph API using JavaScript](https://learn.microsoft.com/entra/identity-platform/quickstart-single-page-app-javascript-sign-in) to learn how to add sign in to your Node web app. |
+| **Product documentation**    | Explore [Microsoft Entra ID for customers documentation](https://learn.microsoft.com/entra/external-id/customers/) |
 
 ## Contents
 
-| File/folder           | Description                                                               |
-|-----------------------|---------------------------------------------------------------------------|
-| `AppCreationScripts/` | Contains Powershell scripts to automate app registration.                 |
-| `App/authPopup.js`    | Main authentication logic resides here (using popup flow).                |
-| `App/authRedirect.js` | Use this instead of `authPopup.js` for authentication with redirect flow. |
-| `App/authConfig.js`   | Contains configuration parameters for the sample.                         |
-| `App/ui.js`           | Contains UI logic.                                                        |
-| `server.js`           | Simple Node server for `index.html`.                                      |
+| File/folder              | Description                                                               |
+|--------------------------|---------------------------------------------------------------------------|
+| `public/authConfig.js`   | Contains configuration parameters for the sample.                         |
+| `public/authPopup.js`    | Main authentication logic resides here (using popup flow).                |
+| `public/authRedirect.js` | Use this instead of `authPopup.js` for authentication with redirect flow. |
+| `public/ui.js`           | Contains UI logic.                                                        |
+| `server.js`              | Node server for `index.html`.                                      |
 
 ## Prerequisites
 
@@ -54,64 +55,33 @@ This sample demonstrates a Vanilla JavaScript single-page application (SPA) that
 * [Visual Studio Code](https://code.visualstudio.com/download) is recommended for running and editing this sample.
 * [VS Code Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension is recommended for interacting with Azure through VS Code Interface.
 * A modern web browser.
-* A Microsoft Entra tenant. For more information, see: [How to get a Microsoft Entra tenant](https://learn.microsoft.com/azure/active-directory/develop/test-setup-environment#get-a-test-tenant)
+* A Microsoft Entra tenant. For more information, see: [How to get a Microsoft Entra tenant](https://learn.microsoft.com/entra/identity-platform/test-setup-environment#get-a-test-tenant)
 * A user account in your Microsoft Entra tenant.
 
 >This sample will not work with a **personal Microsoft account**. If you're signed in to the [Microsoft Entra admin center](https://entra.microsoft.com/) with a personal Microsoft account and have not created a user account in your directory before, you will need to create one before proceeding.
 
-## Setup the sample
+## Clone or download the sample application
 
-### Step 1: Clone or download this repository
+To obtain the sample application, you can either clone it from GitHub or download it as a .zip file.
 
-From your shell or command line:
+* To clone the sample, open a command prompt and navigate to where you wish to create the project, and enter the following command:
 
-```console
-git clone https://github.com/Azure-Samples/ms-identity-javascript-tutorial.git
-```
+    ```console
+    git clone https://github.com/Azure-Samples/ms-identity-javascript-tutorial
+    ```
 
-or download and extract the repository *.zip* file.
+* [Download the .zip file](https://github.com/Azure-Samples/ms-identity-javascript-tutorial/archive/refs/heads/main.zip). Extract it to a file path where the length of the name is fewer than 260 characters.
 
-> :warning: To avoid path length limitations on Windows, we recommend cloning into a directory near the root of your drive.
+## Run the application and sign in
 
-### Step 2: Install project dependencies
+Run the project with a web server by using Node.js:
 
-```console
-    cd 1-Authentication\1-sign-in
+1. To start the server, run the following commands from within the project directory:
+
+    ```console
     npm install
-```
-
-### Step 3: Register the sample application(s) in your tenant
-
-There is one project in this sample. To register it, you can:
-
-* follow the steps below for manually register your apps
-* or use PowerShell scripts that:
-  * **automatically** creates the Microsoft Entra applications and related objects (passwords, permissions, dependencies) for you.
-  * modify the projects' configuration files.
-
-  <details>
-   <summary>Expand this section if you want to use this automation:</summary>
-
-    > :warning: If you have never used **Microsoft Graph PowerShell** before, we recommend you go through the [App Creation Scripts Guide](./AppCreationScripts/AppCreationScripts.md) once to ensure that your environment is prepared correctly for this step.
-  
-    1. On Windows, run PowerShell as **Administrator** and navigate to the root of the cloned directory
-    1. In PowerShell run:
-
-       ```PowerShell
-       Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
-       ```
-
-    1. Run the script to create your Microsoft Entra application and configure the code of the sample application accordingly.
-    1. For interactive process -in PowerShell, run:
-
-       ```PowerShell
-       cd .\AppCreationScripts\
-       .\Configure.ps1 -TenantId "[Optional] - your tenant id" -AzureEnvironmentName "[Optional] - Azure environment, defaults to 'Global'"
-       ```
-
-    > Other ways of running the scripts are described in [App Creation Scripts guide](./AppCreationScripts/AppCreationScripts.md). The scripts also provide a guide to automated application registration, configuration and removal which can help in your CI/CD scenarios.
-
-  </details>
+    npm start
+    ```
 
 #### Choose the Microsoft Entra tenant where you want to create your applications
 
@@ -132,17 +102,7 @@ To manually register the apps, as a first step you'll need to:
 1. If you don't have a platform added, select **Add a platform** and select the **Single-page application** option.
     1. In the **Redirect URI** section enter the following redirect URIs:
         1. `http://localhost:3000`
-        1. `http://localhost:3000/redirect`
     1. Click **Save** to save your changes.
-
-##### Configure Optional Claims
-
-1. Still on the same app registration, select the **Token configuration** blade to the left.
-1. Select **Add optional claim**:
-    1. Select **optional claim type**, then choose **ID**.
-    1. Select the optional claim **acct**.
-    > Provides user's account status in tenant. If the user is a **member** of the tenant, the value is *0*. If they're a **guest**, the value is *1*.
-    1. Select **Add** to save your changes.
 
 ##### Configure the client app (ms-identity-javascript-c1s1) to use your app registration
 
@@ -151,15 +111,19 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
 > In the steps below, "ClientID" is the same as "Application ID" or "AppId".
 
 1. Open the `App\authConfig.js` file.
-1. Find the key `Enter_the_Application_Id_Here` and replace the existing value with the application ID (clientId) of `ms-identity-javascript-c1s1` app copied from the Microsoft Entra admin center.
+1. Find the key `Enter_the_Application_Id_Here` and replace the existing value with the application ID (clientId) copied from the Microsoft Entra admin center.
 1. Find the key `Enter_the_Tenant_Info_Here` and replace the existing value with your Microsoft Entra tenant/directory ID.
 
-### Step 4: Running the sample
+### Run the application and sign in
 
-```console
-    cd 1-Authorization\1-sign-in
+Run the project with a web server by using Node.js:
+
+1. To start the server, run the following commands from within the project directory:
+
+    ```console
+    npm install
     npm start
-```
+    ```
 
 ## Explore the sample
 
@@ -170,7 +134,7 @@ Open the project in your IDE (like Visual Studio or Visual Studio Code) to confi
 
 > :information_source: Did the sample not work for you as expected? Then please reach out to us using the [GitHub Issues](../../../../issues) page.
 
-## We'd love your feedback!
+## We'd love your feedback
 
 Were we successful in addressing your learning objective? Consider taking a moment to [share your experience with us](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR73pcsbpbxNJuZCMKN0lURpUNDVHTkg2VVhWMTNYUTZEM05YS1hSN01EOSQlQCN0PWcu).
 
