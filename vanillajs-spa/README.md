@@ -18,11 +18,9 @@ description: This minimal JavaScript application demonstrates usage of the Micro
 * [Usage](#usage)
 * [Contents](#contents)
 * [Prerequisites](#prerequisites)
-* [Setup the sample](#setup-the-sample)
 * [Explore the sample](#explore-the-sample)
 * [Troubleshooting](#troubleshooting)
 * [About the code](#about-the-code)
-* [Next Steps](#next-steps)
 * [Contributing](#contributing)
 * [Learn More](#learn-more)
 
@@ -36,7 +34,7 @@ This sample demonstrates how to sign users into a sample Vanilla JavaScript sing
 |------------------------------|---------------------------------------------|
 | **Use case**                 | Authenticate users and call a protected web API. |
 | **Scenario**                 | Sign in users. You acquire an ID token by using authorization code flow with PKCE. |
-| **Add sign in to your app**  | Use the instructions in [Sign in users in a single-page app (SPA) and call the Microsoft Graph API using JavaScript](https://learn.microsoft.com/entra/identity-platform/quickstart-single-page-app-javascript-sign-in) to learn how to add sign in to your Node web app. |
+| **Add sign in to your app**  | Use the instructions in [Sign in users in a single-page app (SPA) and call the Microsoft Graph API using JavaScript](https://learn.microsoft.com/entra/identity-platform/quickstart-single-page-app-javascript-sign-in) to learn how to add sign in to your JavaScript SPA. |
 | **Product documentation**    | Explore [Microsoft Entra ID for customers documentation](https://learn.microsoft.com/entra/external-id/customers/) |
 
 ## Contents
@@ -53,7 +51,7 @@ This sample demonstrates how to sign users into a sample Vanilla JavaScript sing
 
 * [Node.js](https://nodejs.org/en/download/) must be installed to run this sample.
 * [Visual Studio Code](https://code.visualstudio.com/download) is recommended for running and editing this sample.
-.* A Microsoft Entra tenant. For more information, see: [How to get a Microsoft Entra tenant](https://learn.microsoft.com/entra/identity-platform/test-setup-environment#get-a-test-tenant)
+* A Microsoft Entra tenant. For more information, see: [How to get a Microsoft Entra tenant](https://learn.microsoft.com/entra/identity-platform/test-setup-environment#get-a-test-tenant)
 * If you'd like to use Azure services, such as hosting your app in Azure App Service, [VS Code Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension is recommended for interacting with Azure through VS Code Interface.
 
 >This sample will not work with a **personal Microsoft account**. If you're signed in to the [Microsoft Entra admin center](https://entra.microsoft.com/) with a personal Microsoft account and have not created a user account in your directory before, you will need to create one before proceeding.
@@ -65,10 +63,10 @@ To obtain the sample application, you can either clone it from GitHub or downloa
 * To clone the sample, open a command prompt and navigate to where you wish to create the project, and enter the following command:
 
     ```console
-    git clone https://github.com/Azure-Samples/ms-identity-javascript-tutorial
+    git clone https://github.com/Azure-Samples/ms-identity-docs-code-javascript
     ```
 
-* [Download the .zip file](https://github.com/Azure-Samples/ms-identity-javascript-tutorial/archive/refs/heads/main.zip). Extract it to a file path where the length of the name is fewer than 260 characters.
+* [Download the .zip file](https://github.com/Azure-Samples/ms-identity-docs-code-javascript/archive/refs/heads/main.zip). Extract it to a file path where the length of the name is fewer than 260 characters.
 
 ## Register the SPA in your tenant
 
@@ -110,17 +108,6 @@ When you use Microsoft Graph PowerShell, you automatically register the applicat
     * `redirectUri` - The **Redirect URI** of the application. If necessary, replace the text in quotes with the redirect URI that was recorded earlier.
 
 ## Run the application and sign in
-
-Run the project with a web server by using Node.js:
-
-1. To start the server, run the following commands from within the project directory:
-
-    ```console
-    npm install
-    npm start
-    ```
-
-### Run the application and sign in
 
 Run the project with a web server by using Node.js:
 
