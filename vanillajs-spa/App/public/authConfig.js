@@ -6,7 +6,9 @@
 const msalConfig = {
     auth: {
         clientId: "Enter_the_Application_Id_Here", // This is the ONLY mandatory field that you need to supply.
-        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here", // Replace the placeholder with your tenant subdomain
+        // WORKFORCE TENANT
+        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here", //  Replace the placeholder with your tenant subdomain
+        // EXTERNAL TENANT
         // authority: 'https://login.microsoftonline.com/1230eeb4-1ca0-4500-8206-e46d4e0e4a68', // Replace the placeholder with your tenant subdomain
         redirectUri: '/', // You must register this URI on App Registration. Defaults to window.location.href e.g. http://localhost:3000/
         navigateToLoginRequestUrl: true, // If "true", will navigate back to the original request location before processing the auth code response.
@@ -44,7 +46,7 @@ const msalConfig = {
  * Scopes you add here will be prompted for user consent during sign-in.
  * By default, MSAL.js will add OIDC scopes (openid, profile, email) to any login request.
  * For more information about OIDC scopes, visit: 
- * https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#openid-connect-scopes
+ * https://learn.microsoft.com/en-us/entra/identity-platform/permissions-consent-overview#openid-connect-scopes
  */
 const loginRequest = {
     scopes: [],
