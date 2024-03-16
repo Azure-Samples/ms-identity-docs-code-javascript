@@ -4,7 +4,7 @@
     "express": "^4.17.3",
     "express-jwt": "^6.1.0",
     "express-jwt-authz": "^2.4.1",
-    "follow-redirects": "^1.15.4",
+    "follow-redirects": "^1.15.6",
     "jwks-rsa": "^2.0.5"
   }
 }
