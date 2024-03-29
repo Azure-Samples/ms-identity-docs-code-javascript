@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "express": "^4.18.2",
+    "express": "^4.19.2",
     "express-jwt": "^6.1.0",
     "express-jwt-authz": "^2.4.1",
     "jwks-rsa": "^2.0.5"
