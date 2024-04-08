@@ -7,7 +7,7 @@ let username = "";
 /**
  * A promise handler needs to be registered for handling the
  * response returned from redirect flow. For more information, visit:
- * 
+ * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md#redirect-apis
  */
 myMSALObj.handleRedirectPromise()
     .then(handleResponse)
@@ -15,7 +15,7 @@ myMSALObj.handleRedirectPromise()
         console.error(error);
     });
 
-function selectAccount () {
+function selectAccount() {
 
     /**
      * See here for more info on account retrieval: 
@@ -30,9 +30,9 @@ function selectAccount () {
         // Add your account choosing logic here
         console.warn("Multiple accounts detected.");
     } else if (currentAccounts.length === 1) {
-        username = currentAccounts[0].username;
-        welcomeUser(username);
-        updateTable();
+        username = currentAccounts[0].username
+        welcomeUser(currentAccounts[0].username);
+        updateTable(currentAccounts[0]);
     }
 }
 
@@ -44,11 +44,10 @@ function handleResponse(response) {
      */
 
     if (response !== null) {
-        username = response.account.username;
+        username = response.account.username
         welcomeUser(username);
-        updateTable();
+        updateTable(response.account);
     } else {
-        
         selectAccount();
 
         /**
@@ -58,11 +57,9 @@ function handleResponse(response) {
          */
 
         // myMSALObj.ssoSilent(silentRequest).
-        //     then(() => {
-        //         const currentAccounts = myMSALObj.getAllAccounts();
-        //         username = currentAccounts[0].username;
-        //         welcomeUser(username);
-        //         updateTable();
+        //     then((response) => {
+        //         welcomeUser(response.account.username);
+        //         updateTable(response.account);
         //     }).catch(error => {
         //         console.error("Silent Error: " + error);
         //         if (error instanceof msal.InteractionRequiredAuthError) {
@@ -92,7 +89,7 @@ function signOut() {
     // Choose which account to logout from by passing a username.
     const logoutRequest = {
         account: myMSALObj.getAccountByUsername(username),
-        postLogoutRedirectUri: 'http://localhost:3000/signout', // Simply remove this line if you would like navigate to index page after logout.
+        postLogoutRedirectUri: '/signout', // remove this line if you would like navigate to index page after logout.
 
     };
 

@@ -43,7 +43,7 @@ $ curl http://localhost:8080/me -H "Authorization: Bearer {valid-access-token}"
 ```
 ## Prerequisites
 
-- Azure Active Directory (Azure AD) tenant and the permissions or role required for managing app registrations in the tenant.
+- A Microsoft Entra tenant and the permissions or role required for managing app registrations in the tenant.
 - Node.js 16+
 
 ## Setup
@@ -62,20 +62,20 @@ Use these settings in your app registration.
 | **Client secret**                 | _**Value** of the client secret (not its ID)_                                | :warning: Record this value immediately! <br/> It's shown only _once_ (when you create it).        |
 | Scopes defined by this API        | Scope name: `user_impersonation`<br/>Who can consent?: Admins and users<br/>Admin consent display name: `User Impersonation`<br/>Admin consent description: `Allows the application to perform an action on behalf of the user.`<br/>User consent display name: `User Impersonation`<br/>User consent description: `Allows the application to perform an action on behalf of the user.`<br/>State: Enabled                                                          | Required scope for this sample.      |
 
-> :information_source: **Bold text** in the tables above matches (or is similar to) a UI element in the Azure portal, while `code formatting` indicates a value you enter into a text box in the Azure portal.
+> :information_source: **Bold text** in the tables above matches (or is similar to) a UI element in the Microsoft Entra admin center, while `code formatting` indicates a value you enter into a text box in the Microsoft Entra admin center.
 
 ### 2. Update code sample with app registration values
 
 ```javascript
 auth: {
-  // 'Application (client) ID' of app registration in Azure portal - this value is a GUID
-  clientId: '',
-
-  // Client secret 'Value' (not the ID) from 'Client secrets' in app registration in Azure portal
-  clientSecret: '',
-
+  // 'Application (client) ID' of app registration in the Microsoft Entra admin center - this value is a GUID
+  clientId: 'Enter_the_Application_Id_Here',
+   
+  // Client secret 'Value' (not the ID) from 'Client secrets' in app registration in Microsoft Entra admin center
+  clientSecret: 'Enter_the_Client_Secret_Value_Here',
+   
   // Full directory URL, in the form of https://login.microsoftonline.com/<tenant>
-  authority: ''
+  authority: 'https://login.microsoftonline.com/Enter_the_Tenant_ID_Here'
 }
 ```
 

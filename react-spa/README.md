@@ -4,12 +4,11 @@ languages:
 - javascript
 products:
 - azure
-- azure-active-directory
 - ms-graph
 - microsoft-identity-platform
 name: React single-page app (SPA) that signs in user
 url-fragment: msal-react-single-page-app
-description: This minimal React application demonstrates usage of the Microsoft Authentication Library for React (MSAL React) to sign in Azure AD users (authentication), call a protected web API (authorization), and sign out users.
+description: This minimal React application demonstrates usage of the Microsoft Authentication Library for React (MSAL React) to sign in Microsoft Entra users (authentication), call a protected web API (authorization), and sign out users.
 ---
 
 
@@ -17,7 +16,7 @@ description: This minimal React application demonstrates usage of the Microsoft 
 
 This minimal React application demonstrates usage of the Microsoft Authentication Library for React (MSAL React) to:
 
-- Sign in Azure AD users (authentication)
+- Sign in Microsoft Entra users (authentication)
 - Call a protected web API (authorization)
 - Sign out users
 

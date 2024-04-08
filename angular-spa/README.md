@@ -1,7 +1,7 @@
 <!-- Keeping yaml frontmatter commented out for now
 ---
-# Metadata required by https://docs.microsoft.com/samples/browse/
-# Metadata properties: https://review.docs.microsoft.com/help/contribute/samples/process/onboarding?branch=main#add-metadata-to-readme
+# Metadata required by https://learn.microsoft.com/samples/browse/
+# Metadata properties: https://review.learn.microsoft.com/help/contribute/samples/process/onboarding?branch=main#add-metadata-to-readme
 languages:
 - Javascript
 page_type: sample
@@ -36,7 +36,7 @@ This Angular application uses the Angular MSAL v2 library to authenticate a user
 
 ### 1. Register the app
 
-First, complete the steps in [Register an application with the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app) to register the application.
+First, complete the steps in [Register an application with the Microsoft identity platform](https://learn.microsoft.com/azure/active-directory/develop/quickstart-register-app) to register the application.
 
 Use these settings in your app registration.
 
@@ -101,7 +101,7 @@ If you can't get the sample working, you've checked [Stack Overflow](http://stac
 
 > :warning: WARNING: Any issue in this repository _not_ limited to running one of its sample apps will be closed without being addressed.
 
-For all other requests, see [Support and help options for developers | Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options).
+For all other requests, see [Support and help options for developers | Microsoft identity platform](https://learn.microsoft.com/azure/active-directory/develop/developer-support-help-options).
 
 ## Contributing
 
