@@ -26,9 +26,9 @@ This Node.js web API issues a call to a protected web API (Microsoft Graph) by u
 $ curl http://localhost:8080/api/application
 {
   "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#applications/$entity",
-  "id": "003c4673-d4a0-4eb6-8979-d6269e08b87e",
+  "id": "00aa00aa-bb11-cc22-dd33-44ee44ee44ee",
   "deletedDateTime": null,
-  "appId": "c085fc22-2484-41c0-b795-2e940f51df64",
+  "appId": "00001111-aaaa-2222-bbbb-3333cccc4444",
   "applicationTemplateId": null,
   "disabledByMicrosoftStatus": null,
   "createdDateTime": "2021-12-17T16:45:43Z",
@@ -112,9 +112,9 @@ If everything worked, you should receive a response from the downstream web API 
 $ curl http://localhost:8080/api/application
 {
   "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#applications/$entity",
-  "id": "003c4673-d4a0-4eb6-8979-d6269e08b87e",
+  "id": "00aa00aa-bb11-cc22-dd33-44ee44ee44ee",
   "deletedDateTime": null,
-  "appId": "c085fc22-2484-41c0-b795-2e940f51df64",
+  "appId": "00001111-aaaa-2222-bbbb-3333cccc4444",
   "applicationTemplateId": null,
   "disabledByMicrosoftStatus": null,
   "createdDateTime": "2021-12-17T16:45:43Z",
