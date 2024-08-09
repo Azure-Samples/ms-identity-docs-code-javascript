@@ -11,7 +11,7 @@ const msal = require('@azure/msal-node')
 const express = require('express')
 
 // Used to validate JWT access tokens
-const jwt = require('express-jwt')
+const {expressjwt: jwt } = require("express-jwt");
 const jwks = require('jwks-rsa')
 const jwtAuthz = require('express-jwt-authz')
 
@@ -42,16 +42,16 @@ const app = express()
 // Add Express middleware to validate JWT access tokens
 app.use(jwt({
   secret: jwks.expressJwtSecret({
-    jwksUri: config.auth.authority + '/discovery/v2.0/keys'
+    jwksUri: `https://${config.auth.tenant}.ciamlogin.com/` + config.auth.tenant + '/discovery/v2.0/keys'
   }),
   audience: config.auth.clientId,
-  issuer: config.auth.authority + '/v2.0',
+  issuer: `https://${config.auth.tenant}.ciamlogin.com/` + config.auth.tenant + '/v2.0',
   algorithms: ['RS256']
 }))
 
 // Allow access to the /me endpoint if the provided JWT access token has
 // the 'user_impersonation' scope.
-app.get('/me', jwtAuthz(['user_impersonation'], { customScopeKey: 'scp' }), (req, res) => {
+app.get('/me', jwtAuthz(['user_impersonation'], { customScopeKey: 'scp', customUserKey: 'auth' }), (req, res) => {
   // Get the user's access token for *this* web API
   const authHeader = req.headers.authorization
 
