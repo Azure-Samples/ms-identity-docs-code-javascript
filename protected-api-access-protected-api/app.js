@@ -42,10 +42,10 @@ const app = express()
 // Add Express middleware to validate JWT access tokens
 app.use(jwt({
   secret: jwks.expressJwtSecret({
-    jwksUri: `https://${config.auth.tenant}.ciamlogin.com/` + config.auth.tenant + '/discovery/v2.0/keys'
+    jwksUri: config.auth.authority + '/discovery/v2.0/keys'
   }),
   audience: config.auth.clientId,
-  issuer: `https://${config.auth.tenant}.ciamlogin.com/` + config.auth.tenant + '/v2.0',
+  issuer: config.auth.authority + '/v2.0',
   algorithms: ['RS256']
 }))
 
