@@ -1,0 +1,35 @@
+name: Build & Test CI
+
+on:
+    push:
+      branches: [ "main" ]
+    pull_request:
+      branches: [ "main" ]
+  
+jobs:
+    build:
+      runs-on: ubuntu-latest
+  
+      strategy:
+        matrix:
+          node-version: [20]
+          dir: ['./angular-spa', './msal-credentials-flow', './protect-api', './protect-function-app', './protected-api-access-protected-api', './react-spa']
+  
+      steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+  
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+  
+      - name: Install dependencies
+        run: npm ci
+        working-directory: ${{ matrix.dir }}
+      - name: Build the packages
+        run: npm run build --if-present
+        working-directory: ${{ matrix.dir }}
+      - name: Run tests
+        run: npm test
+        working-directory: ${{ matrix.dir }}
