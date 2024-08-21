@@ -13,7 +13,8 @@ jobs:
       strategy:
         matrix:
           node-version: [20]
-          dir: ['./angular-spa', './msal-client-credentials-flow', './protect-api', './protect-function-app', './protected-api-access-protected-api', './react-spa']
+          dir: [      # './angular-spa', './msal-client-credentials-flow',  -- angula spa can't install packages, msal-client... has no package-lock.json. These should fail
+                './protect-api', './protect-function-app', './protected-api-access-protected-api', './react-spa']
   
       steps:
       - name: Checkout repository
