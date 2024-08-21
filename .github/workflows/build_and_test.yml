@@ -13,7 +13,7 @@ jobs:
       strategy:
         matrix:
           node-version: [20]
-          dir: ['./angular-spa', './msal-credentials-flow', './protect-api', './protect-function-app', './protected-api-access-protected-api', './react-spa']
+          dir: ['./angular-spa', './msal-client-credentials-flow', './protect-api', './protect-function-app', './protected-api-access-protected-api', './react-spa']
   
       steps:
       - name: Checkout repository
