@@ -32,5 +32,5 @@ jobs:
         run: npm run build --if-present
         working-directory: ${{ matrix.dir }}
       - name: Run tests
-        run: npm test -- --passWithNoTests --if-present 
+        run: npm test --if-present -- --passWithNoTests  
         working-directory: ${{ matrix.dir }}
