@@ -31,7 +31,7 @@ const ProfileContent = () => {
 
     return (
         <>
-            <h5 className="profileContent">Welcome {accounts[0].name}</h5>
+            {accounts[0] && <h5 className="profileContent">Welcome {accounts[0].name}</h5>}
             {graphData ? (
                 <ProfileData graphData={graphData} />
             ) : (
