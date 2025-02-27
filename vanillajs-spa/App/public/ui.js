@@ -6,12 +6,13 @@ const welcomeDiv = document.getElementById('welcome-div');
 const tableDiv = document.getElementById('table-div');
 const tableBody = document.getElementById('table-body-div');
 
-function welcomeUser(username) {
+function showWelcomeMessage(account) {
     signInButton.classList.add('d-none');
     signOutButton.classList.remove('d-none');
     titleDiv.classList.add('d-none');
     welcomeDiv.classList.remove('d-none');
-    welcomeDiv.innerHTML = `Welcome ${username}!`;
+    welcomeDiv.innerHTML = `Welcome ${account.username}!`;
+    updateTable(account);
 };
 
 function updateTable(account) {

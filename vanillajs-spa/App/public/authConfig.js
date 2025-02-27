@@ -6,11 +6,10 @@
 const msalConfig = {
     auth: {
 
-        // clientId: "Enter_the_Application_Id_Here", // This is the ONLY mandatory field that you need to supply
-        // WORKFORCE TENANT
-        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here", //  Replace the placeholder with your tenant info
-        // EXTERNAL TENANT
-        // authority: "https://Enter_the_Tenant_Subdomain_Here.ciamlogin.com/", // Replace the placeholder with your tenant subdomain
+         // WORKFORCE TENANT
+         authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here", //  Replace the placeholder with your tenant info
+         // EXTERNAL TENANT
+         // authority: "https://Enter_the_Tenant_Subdomain_Here.ciamlogin.com/", // Replace the placeholder with your tenant subdomain
         redirectUri: '/', // You must register this URI on App Registration. Defaults to window.location.href e.g. http://localhost:3000/
         navigateToLoginRequestUrl: true, // If "true", will navigate back to the original request location before processing the auth code response.
     },
@@ -51,8 +50,7 @@ const msalConfig = {
  * https://learn.microsoft.com/en-us/entra/identity-platform/permissions-consent-overview#openid-connect-scopes
  */
 const loginRequest = {
-    scopes: [],
-    scopes: [],
+    scopes: ["User.Read"],
 };
 
 /**
