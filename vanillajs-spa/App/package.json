@@ -1,7 +1,7 @@
 {
   "name": "ms-identity-javascript-c1s1",
   "version": "1.0.0",
-  "description": "Vanilla JavaScript single-page application (SPA) using MSAL.js to authenticate users using Microsoft Entra ID",
+  "description": "JavaScript single-page application (SPA) using MSAL.js to authenticate users using Microsoft Entra ID",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -28,12 +28,14 @@
   },
   "homepage": "https://github.com/Azure-Samples/ms-identity-javascript-tutorial#readme",
   "dependencies": {
-    "@azure/msal-browser": "^2.37.0",
-    "express": "^4.18.2",
+    "express": "^4.20.0",
     "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "jest": "^27.0.6",
+    "@azure/msal-browser": "^4.0.0",
+    "@types/jest": "^29.5.0",
+    "@types/express": "^4.17.3",
+    "@types/morgan": "^1.9.0",
     "nodemon": "^2.0.20",
     "supertest": "^6.1.4"
   },

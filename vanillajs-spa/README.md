@@ -42,10 +42,9 @@ This sample demonstrates how to sign users into a sample Vanilla JavaScript sing
 | File/folder              | Description                                                               |
 |--------------------------|---------------------------------------------------------------------------|
 | `public/authConfig.js`   | Contains configuration parameters for the sample.                         |
-| `public/authPopup.js`    | Main authentication logic resides here (using popup flow).                |
-| `public/authRedirect.js` | Use this instead of `authPopup.js` for authentication with redirect flow. |
+| `public/auth.js`         | Used for authentication with redirect flow.                               |
 | `public/ui.js`           | Contains UI logic.                                                        |
-| `server.js`              | Node server for `index.html`.                                      |
+| `server.js`              | Node server for `index.html`.                                             |
 
 ## Prerequisites
 
