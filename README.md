@@ -4,10 +4,6 @@ This repo contains code used to directly support the product documentation for t
 
 ## Content
 
-This repo contains the following code to directly support the product docs:
-
-* Coming Soon!
-
 ## Resources
 
 - [Microsoft identity platform product documentation](https://docs.microsoft.com/azure/active-directory/develop/)

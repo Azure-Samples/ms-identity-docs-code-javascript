@@ -29,8 +29,8 @@ This Angular application uses the Angular MSAL v2 library to authenticate a user
 ## Prerequisites
 
 - A Microsoft Entra tenant and the permissions or role required for managing app registrations in the tenant.
-- Node.js 16+
-- Angular 12
+- Node.js ^18.13.0 || ^20.9.0
+- Angular 17
 
 ## Setup
 

@@ -37,7 +37,7 @@ $ curl http://localhost:8080/me -H "Authorization: Bearer {valid-access-token}"
   "preferredLanguage": null,
   "surname": "Employee",
   "userPrincipalName": "contoso_employee@contoso.com",
-  "id": "e3a49d8b-d849-48eb-9947-37c1f9589812"
+  "id": "00aa00aa-bb11-cc22-dd33-44ee44ee44ee"
 }
 
 ```
@@ -115,7 +115,7 @@ $ curl http://localhost:8080/me -H "Authorization: Bearer {VALID-ACCESS-TOKEN}"
   "preferredLanguage": null,
   "surname": "Employee",
   "userPrincipalName": "contoso_employee@contoso.com",
-  "id": "e3a49d8b-d849-48eb-9947-37c1f9589812"
+  "id": "00aa00aa-bb11-cc22-dd33-44ee44ee44ee"
 }
 ```
 

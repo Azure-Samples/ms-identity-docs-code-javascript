@@ -42,7 +42,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "development": {
-              "browserTarget": "angular-msal-example:build:development"
+              "buildTarget": "angular-msal-example:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -50,5 +50,7 @@
       }
     }
   },
-  "defaultProject": "angular-msal-example"
+  "cli": {
+    "analytics": false
+  }
 }

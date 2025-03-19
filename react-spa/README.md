@@ -4,7 +4,6 @@ languages:
 - javascript
 products:
 - azure
-- azure-active-directory
 - ms-graph
 - microsoft-identity-platform
 name: React single-page app (SPA) that signs in user

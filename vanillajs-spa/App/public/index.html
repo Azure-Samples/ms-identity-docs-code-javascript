@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Microsoft identity platform</title>
+    <link rel="SHORTCUT ICON" href="./favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="./styles.css">
+    
+    <!-- adding Bootstrap 5 for UI components  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- msal.min.js can be used in the place of msal-browser.js -->
+    <script src="/msal-browser.min.js"></script>
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bootstrap 5 Navbar</title>
+  <!-- Bootstrap 5 CSS -->
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-Zenh87qX5JnK2Rl3l94faQlfdS3b8SpxyDkgOn+Y5Qu3og6JpNZnN9LfX9k8wAI5" 
+    crossorigin="anonymous">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-sm navbar-dark bg-primary navbarStyle">
+    <a class="navbar-brand" href="/">Microsoft identity platform</a>
+  
+    <div class="ms-auto d-flex align-items-center">
+      <!-- Dropdown group (Bootstrap 5 uses dropstart instead of dropleft) -->
+      <div class="btn-group dropstart">
+        <!-- Toggle button for dropdown -->
+        <button
+          id="signIn"
+          type="button"
+          class="btn btn-primary dropdown-toggle"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Sign In
+        </button>
+  
+        <!-- Dropdown menu -->
+        <div class="dropdown-menu">
+          <button class="dropdown-item" id="popup" onclick="signIn(this.id)">
+            Sign in using Popup
+          </button>
+          <button class="dropdown-item" id="redirect" onclick="signIn(this.id)">
+            Sign in using Redirect
+          </button>
+        </div>
+      </div>
+  
+      <!-- Sign Out button -->
+      <button class="btn btn-secondary ms-2" id="signOut" onclick="signOut()">
+        Sign Out
+      </button>
+    </div>
+  </nav>
+  
+
+  <br />
+  <div class="container">
+    <div class="row">
+      <h5 id="title-div" class="card-header text-center">
+        JavaScript single-page application secured with MSAL.js
+      </h5>
+      <br />
+      <h5 id="welcome-div" class="card-header text-center d-none"></h5>
+
+      <table class="table table-striped table-bordered d-none" id="table-div">
+        <thead>
+          <tr>
+            <th>Claim Type</th>
+            <th>Value</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody id="table-body-div"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Optionally remove jQuery and separate Popper if not needed elsewhere -->
+  <!-- jQuery (not required for Bootstrap 5) -->
+  <script 
+    src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+    crossorigin="anonymous">
+  </script>
+
+  <!-- If you're using the Bootstrap 5 bundle, you don't need a separate Popper script -->
+  <!-- <script 
+    src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" 
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" 
+    crossorigin="anonymous">
+  </script> -->
+
+  <!-- Bootstrap 5 JS bundle (includes Popper) -->
+  <script 
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" 
+    crossorigin="anonymous">
+  </script>
+
+  <!-- Your custom scripts -->
+  <script type="text/javascript" src="./authConfig.js"></script>
+  <script type="text/javascript" src="./ui.js"></script>
+  <script type="text/javascript" src="./claimUtils.js"></script>
+  <script type="text/javascript" src="./auth.js"></script>
+</body>
+</html>

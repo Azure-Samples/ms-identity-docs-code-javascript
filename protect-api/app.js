@@ -8,7 +8,7 @@
 const express = require('express')
 
 // Used to validate JWT access tokens
-const jwt = require('express-jwt')
+const {expressjwt: jwt } = require("express-jwt");
 const jwks = require('jwks-rsa')
 const jwtAuthz = require('express-jwt-authz')
 
@@ -37,7 +37,7 @@ app.use(jwt({
 
 // Verify the JWT access token is valid and contains 'Greeting.Read' for the scope to access the endpoint.
 // Instruct jwtAuthz to pull scopes from the 'scp' claim, which is the claim used by Azure AD.
-app.get('/', jwtAuthz(['Greeting.Read'], { customScopeKey: 'scp' }), (req, res) => {
+app.get('/', jwtAuthz(['Greeting.Read'], { customScopeKey: 'scp', customUserKey: 'auth'}), (req, res) => {
   res.send('Hello, world. You were able to access this because you provided a valid access token with the Greeting.Read scope as a claim.')
 })
 
