@@ -47,7 +47,6 @@ const msalConfig = {
  * By default, MSAL.js will add OIDC scopes (openid, profile, email) to any login request.
  * For more information about OIDC scopes, visit: 
  * https://learn.microsoft.com/en-us/entra/identity-platform/permissions-consent-overview#openid-connect-scopes
- * https://learn.microsoft.com/en-us/entra/identity-platform/permissions-consent-overview#openid-connect-scopes
  */
 const loginRequest = {
     scopes: ["User.Read"],
@@ -65,10 +64,6 @@ const loginRequest = {
 
 // exporting config object for jest
 if (typeof exports !== 'undefined') {
-    module.exports = {
-        msalConfig: msalConfig,
-        loginRequest: loginRequest,
-    };
     module.exports = {
         msalConfig: msalConfig,
         loginRequest: loginRequest,
